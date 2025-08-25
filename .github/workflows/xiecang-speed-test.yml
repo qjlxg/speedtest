@@ -4,8 +4,10 @@ on:
   push:
     paths:
       - '.github/workflows/xiecang-speed-test.yml'
+  
   schedule:
     - cron: '0 */8 * * *'
+  # 允许手动触发
   workflow_dispatch:
 
 env:
@@ -24,20 +26,33 @@ jobs:
         with:
           go-version: '1.21'
       
-      - name: 下载 Go 模块依赖
-        run: go mod tidy
-      
-      - name: 编译 clash-speedtest 工具
+      # 编译你自己的 clash-speedtest 工具
+      - name: 编译自定义 clash-speedtest 工具
         run: go build -o clash-speedtest-custom
       
-      - name: 运行测速并筛选节点
+      - name: 备份上次运行结果
         run: |
-          # 使用编译的工具，传入自定义参数
+          # 获取当前日期时间并格式化
+          TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+          # 直接备份文件，假设 clash.yaml 和 sc 目录都存在
+          cp clash.yaml sc/clash_$TIMESTAMP.yaml
+          echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
+      
+      - name: 快速延迟预过滤
+        run: |
+          # 快速测试所有节点，只进行延迟测试，并输出到临时文件
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                   -output clash.yaml \
-                                   -max-latency 808ms \
-                                   -min-download-speed 18.8 \
-                                   -rename || echo "测速失败，可能由于网络或权限问题"
+                                -output fast-filtered.yaml \
+                                -max-latency 808ms \
+                                -fast
+
+      - name: 运行完整测速并筛选节点
+        run: |
+          # 使用预过滤后的节点列表进行完整测速和筛选
+          ./clash-speedtest-custom -c fast-filtered.yaml \
+                                -output clash.yaml \
+                                -min-download-speed 18.8 \
+                                -rename
       
       - name: 提交并推送更改
         run: |
