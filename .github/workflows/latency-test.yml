@@ -42,6 +42,7 @@ jobs:
           
           if ! git diff --cached --quiet; then
             git commit -m "chore: Update Clash nodes (latency filter)"
+            git pull --rebase
             git push
           else
             echo "没有节点更改，无需提交。"
