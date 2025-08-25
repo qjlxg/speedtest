@@ -36,6 +36,7 @@ jobs:
           ./clash-speedtest-custom -c fast-filtered.yaml \
                                 -output clash.yaml \
                                 -min-download-speed 18.8 \
+                                -concurrent 20 \
                                 -rename
 
       - name: 提交并推送更改
