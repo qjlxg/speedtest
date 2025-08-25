@@ -10,6 +10,7 @@ import (
 	"sort"
 	"strings"
 	"time"
+    "sync" // 新增
 
 	"github.com/faceair/clash-speedtest/speedtester"
 	"github.com/metacubex/mihomo/log"
@@ -26,7 +27,7 @@ var (
 	downloadSize      = flag.Int("download-size", 50*1024*1024, "download size for testing proxies")
 	uploadSize        = flag.Int("upload-size", 20*1024*1024, "upload size for testing proxies")
 	timeout           = flag.Duration("timeout", time.Second*5, "timeout for testing proxies")
-	concurrent        = flag.Int("concurrent", 4, "download concurrent size")
+	concurrent        = flag.Int("concurrent", 20, "download concurrent size") // 默认并发数改为20
 	outputPath        = flag.String("output", "", "output config file path")
 	stashCompatible   = flag.Bool("stash-compatible", false, "enable stash compatible mode")
 	maxLatency        = flag.Duration("max-latency", 800*time.Millisecond, "filter latency greater than this value")
@@ -50,7 +51,7 @@ func main() {
 	if *configPathsConfig == "" {
 		log.Fatalln("please specify the configuration file")
 	}
-
+	
 	speedTester := speedtester.New(&speedtester.Config{
 		ConfigPaths:      *configPathsConfig,
 		FilterRegex:      *filterRegexConfig,
@@ -73,10 +74,14 @@ func main() {
 
 	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
 	results := make([]*speedtester.Result, 0)
+	var mu sync.Mutex // 新增：用于保护对 results 的并发写入
+
 	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
 		bar.Add(1)
 		bar.Describe(result.ProxyName)
+		mu.Lock()
 		results = append(results, result)
+		mu.Unlock()
 	})
 
 	sort.Slice(results, func(i, j int) bool {
@@ -86,7 +91,7 @@ func main() {
 	printResults(results)
 
 	if *outputPath != "" {
-		err = saveConfig(results)
+		err = saveOptimizedConfig(results) // 调用新的函数
 		if err != nil {
 			log.Fatalln("save config file failed: %v", err)
 		}
@@ -94,9 +99,72 @@ func main() {
 	}
 }
 
-func printResults(results []*speedtester.Result) {
-	table := tablewriter.NewWriter(os.Stdout)
+// saveOptimizedConfig 负责根据测速结果生成优化的Clash配置文件
+func saveOptimizedConfig(results []*speedtester.Result) error {
+	proxies := make([]map[string]any, 0)
+	proxyNames := []string{}
 
+	// 过滤并处理节点
+	for _, result := range results {
+		// 现有的过滤逻辑
+		if *maxLatency > 0 && result.Latency > *maxLatency {
+			continue
+		}
+		if *downloadSize > 0 && *minDownloadSpeed > 0 && result.DownloadSpeed < *minDownloadSpeed*1024*1024 {
+			continue
+		}
+		if *uploadSize > 0 && *minUploadSpeed > 0 && result.UploadSpeed < *minUploadSpeed*1024*1024 {
+			continue
+		}
+
+		proxyConfig := result.ProxyConfig
+		if *renameNodes {
+			location, err := getIPLocation(proxyConfig["server"].(string))
+			if err != nil || location.CountryCode == "" {
+				proxies = append(proxies, proxyConfig)
+				proxyNames = append(proxyNames, proxyConfig["name"].(string))
+				continue
+			}
+			newName := generateNodeName(location.CountryCode, result.DownloadSpeed)
+			proxyConfig["name"] = newName
+			proxyNames = append(proxyNames, newName)
+		} else {
+			proxyNames = append(proxyNames, proxyConfig["name"].(string))
+		}
+		proxies = append(proxies, proxyConfig)
+	}
+
+	// 创建一个自动选择的代理组
+	proxyGroups := []map[string]interface{}{
+		{
+			"name":     "自动选择",
+			"type":     "url-test",
+			"url":      "http://www.gstatic.com/generate_204",
+			"interval": 300,
+			"proxies":  proxyNames,
+		},
+	}
+
+	// 创建新的 Clash YAML 配置结构
+	newConfig := map[string]interface{}{
+		"proxies":      proxies,
+		"proxy-groups": proxyGroups,
+		"rules": []string{
+			"MATCH,自动选择",
+		},
+	}
+
+	yamlData, err := yaml.Marshal(newConfig)
+	if err != nil {
+		return err
+	}
+
+	return os.WriteFile(*outputPath, yamlData, 0o644)
+}
+
+func printResults(results []*speedtester.Result) {
+    // ... (此函数保持原样)
+	table := tablewriter.NewWriter(os.Stdout)
 	var headers []string
 	if *fastMode {
 		headers = []string{
@@ -230,42 +298,6 @@ func printResults(results []*speedtester.Result) {
 	fmt.Println()
 	table.Render()
 	fmt.Println()
-}
-
-func saveConfig(results []*speedtester.Result) error {
-	proxies := make([]map[string]any, 0)
-	for _, result := range results {
-		if *maxLatency > 0 && result.Latency > *maxLatency {
-			continue
-		}
-		if *downloadSize > 0 && *minDownloadSpeed > 0 && result.DownloadSpeed < *minDownloadSpeed*1024*1024 {
-			continue
-		}
-		if *uploadSize > 0 && *minUploadSpeed > 0 && result.UploadSpeed < *minUploadSpeed*1024*1024 {
-			continue
-		}
-
-		proxyConfig := result.ProxyConfig
-		if *renameNodes {
-			location, err := getIPLocation(proxyConfig["server"].(string))
-			if err != nil || location.CountryCode == "" {
-				proxies = append(proxies, proxyConfig)
-				continue
-			}
-			proxyConfig["name"] = generateNodeName(location.CountryCode, result.DownloadSpeed)
-		}
-		proxies = append(proxies, proxyConfig)
-	}
-
-	config := &speedtester.RawConfig{
-		Proxies: proxies,
-	}
-	yamlData, err := yaml.Marshal(config)
-	if err != nil {
-		return err
-	}
-
-	return os.WriteFile(*outputPath, yamlData, 0o644)
 }
 
 type IPLocation struct {
