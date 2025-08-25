@@ -9,11 +9,10 @@ import (
 	"os"
 	"sort"
 	"strings"
-	"sync"
 	"time"
+    "sync" // 新增
 
 	"github.com/faceair/clash-speedtest/speedtester"
-	"github.com/go-ping/ping"
 	"github.com/metacubex/mihomo/log"
 	"github.com/olekukonko/tablewriter"
 	"github.com/schollz/progressbar/v3"
@@ -28,7 +27,7 @@ var (
 	downloadSize      = flag.Int("download-size", 50*1024*1024, "download size for testing proxies")
 	uploadSize        = flag.Int("upload-size", 20*1024*1024, "upload size for testing proxies")
 	timeout           = flag.Duration("timeout", time.Second*5, "timeout for testing proxies")
-	concurrent        = flag.Int("concurrent", 20, "download concurrent size")
+	concurrent        = flag.Int("concurrent", 20, "download concurrent size") // 默认并发数改为20
 	outputPath        = flag.String("output", "", "output config file path")
 	stashCompatible   = flag.Bool("stash-compatible", false, "enable stash compatible mode")
 	maxLatency        = flag.Duration("max-latency", 800*time.Millisecond, "filter latency greater than this value")
@@ -36,7 +35,6 @@ var (
 	minUploadSpeed    = flag.Float64("min-upload-speed", 2, "filter upload speed less than this value(unit: MB/s)")
 	renameNodes       = flag.Bool("rename", false, "rename nodes with IP location and speed")
 	fastMode          = flag.Bool("fast", false, "fast mode, only test latency")
-	pingMaxLatency    = flag.Duration("ping-max-latency", 0, "max ping latency to pre-filter proxies, 0 to disable")
 )
 
 const (
@@ -53,8 +51,8 @@ func main() {
 	if *configPathsConfig == "" {
 		log.Fatalln("please specify the configuration file")
 	}
-
-	tester := speedtester.New(&speedtester.Config{
+	
+	speedTester := speedtester.New(&speedtester.Config{
 		ConfigPaths:      *configPathsConfig,
 		FilterRegex:      *filterRegexConfig,
 		BlockRegex:       *blockKeywords,
@@ -69,81 +67,23 @@ func main() {
 		FastMode:         *fastMode,
 	})
 
-	allProxies, err := tester.LoadProxies(*stashCompatible)
+	allProxies, err := speedTester.LoadProxies(*stashCompatible)
 	if err != nil {
 		log.Fatalln("load proxies failed: %v", err)
 	}
 
-	// ----------------------
-	// 第一步: 快速 Ping 预过滤 (可选)
-	// ----------------------
-	if *pingMaxLatency > 0 {
-		fmt.Println("正在进行快速 Ping 预过滤...")
-		var filteredProxies []*speedtester.Proxy
-		var pingMu sync.Mutex
-		var pingWg sync.WaitGroup
-		pingSem := make(chan struct{}, *concurrent) // 使用 concurrent 限制 Ping 并发
+	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
+	results := make([]*speedtester.Result, 0)
+	var mu sync.Mutex // 新增：用于保护对 results 的并发写入
 
-		for _, p := range allProxies {
-			pingWg.Add(1)
-			go func(proxy *speedtester.Proxy) {
-				defer pingWg.Done()
-				pingSem <- struct{}{}
-				defer func() { <-pingSem }()
-
-				server, ok := proxy.Config["server"].(string)
-				if !ok {
-					return
-				}
-				pinger, err := ping.NewPinger(server)
-				if err != nil {
-					return
-				}
-				// 注意: ICMP Ping 需要管理员权限，如果运行失败，请尝试以管理员身份运行。
-				pinger.SetPrivileged(true) 
-				pinger.Count = 3
-				pinger.Timeout = *timeout
-				err = pinger.Run()
-				if err != nil {
-					return
-				}
-				stats := pinger.Statistics()
-				if stats.AvgRtt <= *pingMaxLatency && stats.PacketLoss < 100 {
-					pingMu.Lock()
-					filteredProxies = append(filteredProxies, proxy)
-					pingMu.Unlock()
-				}
-			}(p)
-		}
-		pingWg.Wait()
-		allProxies = filteredProxies
-		fmt.Printf("预过滤后剩余节点数: %d\n", len(allProxies))
-	}
-
-	if len(allProxies) == 0 {
-		fmt.Println("没有找到任何可用的节点。")
-		return
-	}
-
-	// ----------------------
-	// 第二步: 完整测速
-	// ----------------------
-	fmt.Println("\n开始对可用节点进行完整测速...")
-	resultsBar := progressbar.Default(int64(len(allProxies)), "测速中...")
-	results := make([]*speedtester.Result, 0, len(allProxies))
-	var mu sync.Mutex
-
-	tester.TestProxies(allProxies, func(result *speedtester.Result) {
-		resultsBar.Add(1)
-		resultsBar.Describe(result.ProxyName)
+	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
+		bar.Add(1)
+		bar.Describe(result.ProxyName)
 		mu.Lock()
 		results = append(results, result)
 		mu.Unlock()
 	})
 
-	// ----------------------
-	// 第三步: 排序、打印和保存结果
-	// ----------------------
 	sort.Slice(results, func(i, j int) bool {
 		return results[i].DownloadSpeed > results[j].DownloadSpeed
 	})
@@ -151,7 +91,7 @@ func main() {
 	printResults(results)
 
 	if *outputPath != "" {
-		err = saveOptimizedConfig(results)
+		err = saveOptimizedConfig(results) // 调用新的函数
 		if err != nil {
 			log.Fatalln("save config file failed: %v", err)
 		}
@@ -223,6 +163,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 }
 
 func printResults(results []*speedtester.Result) {
+    // ... (此函数保持原样)
 	table := tablewriter.NewWriter(os.Stdout)
 	var headers []string
 	if *fastMode {
@@ -257,15 +198,15 @@ func printResults(results []*speedtester.Result) {
 	table.SetBorder(false)
 	table.SetTablePadding("\t")
 	table.SetNoWhiteSpace(true)
-	table.SetColMinWidth(0, 4)
-	table.SetColMinWidth(1, 20)
-	table.SetColMinWidth(2, 8)
-	table.SetColMinWidth(3, 8)
+	table.SetColMinWidth(0, 4)  // 序号
+	table.SetColMinWidth(1, 20) // 节点名称
+	table.SetColMinWidth(2, 8)  // 类型
+	table.SetColMinWidth(3, 8)  // 延迟
 	if !*fastMode {
-		table.SetColMinWidth(4, 8)
-		table.SetColMinWidth(5, 8)
-		table.SetColMinWidth(6, 12)
-		table.SetColMinWidth(7, 12)
+		table.SetColMinWidth(4, 8)  // 抖动
+		table.SetColMinWidth(5, 8)  // 丢包率
+		table.SetColMinWidth(6, 12) // 下载速度
+		table.SetColMinWidth(7, 12) // 上传速度
 	}
 
 	for i, result := range results {
@@ -366,7 +307,7 @@ type IPLocation struct {
 
 var countryFlags = map[string]string{
 	"US": "🇺🇸", "CN": "🇨🇳", "GB": "🇬🇧", "UK": "🇬🇧", "JP": "🇯🇵", "DE": "🇩🇪", "FR": "🇫🇷", "RU": "🇷🇺",
-	"SG": "🇸🇬", "HK": "🇭�", "TW": "🇹🇼", "KR": "🇰🇷", "CA": "🇨🇦", "AU": "🇦🇺", "NL": "🇳🇱", "IT": "🇮🇹",
+	"SG": "🇸🇬", "HK": "🇭🇰", "TW": "🇹🇼", "KR": "🇰🇷", "CA": "🇨🇦", "AU": "🇦🇺", "NL": "🇳🇱", "IT": "🇮🇹",
 	"ES": "🇪🇸", "SE": "🇸🇪", "NO": "🇳🇴", "DK": "🇩🇰", "FI": "🇫🇮", "CH": "🇨🇭", "AT": "🇦🇹", "BE": "🇧🇪",
 	"BR": "🇧🇷", "IN": "🇮🇳", "TH": "🇹🇭", "MY": "🇲🇾", "VN": "🇻🇳", "PH": "🇵🇭", "ID": "🇮🇩", "UA": "🇺🇦",
 	"TR": "🇹🇷", "IL": "🇮🇱", "AE": "🇦🇪", "SA": "🇸🇦", "EG": "🇪🇬", "ZA": "🇿🇦", "NG": "🇳🇬", "KE": "🇰🇪",
