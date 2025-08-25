@@ -77,21 +77,22 @@ func main() {
 	// ----------------------
 	fmt.Println("正在进行快速延迟测试...")
 	pingBar := progressbar.Default(int64(len(proxies)), "Ping测试中...")
-	pingResults := make([]*speedtester.Result, 0, len(proxies))
+	pingResults := make(map[string]*speedtester.Result)
 	var mu sync.Mutex
 
 	tester.TestProxies(proxies, func(result *speedtester.Result) {
 		pingBar.Add(1)
 		pingBar.Describe(result.ProxyName)
 		mu.Lock()
-		pingResults = append(pingResults, result)
+		pingResults[result.ProxyName] = result
 		mu.Unlock()
 	})
 
 	var goodProxies []*speedtester.Proxy
-	for _, res := range pingResults {
-		if res.Latency > 0 && res.Latency < *maxLatency {
-			goodProxies = append(goodProxies, res.Proxy)
+	for _, p := range proxies {
+		res, ok := pingResults[p.Name()]
+		if ok && res.Latency > 0 && res.Latency < *maxLatency {
+			goodProxies = append(goodProxies, p)
 		}
 	}
 	fmt.Printf("\nPing测试完成，找到 %d 个可用节点。\n", len(goodProxies))
@@ -341,7 +342,7 @@ type IPLocation struct {
 }
 
 var countryFlags = map[string]string{
-	"US": "🇺🇸", "CN": "🇨🇳", "GB": "🇬🇧", "UK": "🇬🇧", "JP": "🇯🇵", "DE": "🇩🇪", "FR": "🇫🇷", "RU": "🇷🇺",
+	"US": "🇺🇸", "CN": "🇨🇳", "🇬🇧": "🇬🇧", "UK": "🇬🇧", "JP": "🇯🇵", "DE": "🇩🇪", "FR": "🇫🇷", "RU": "🇷🇺",
 	"SG": "🇸🇬", "HK": "🇭🇰", "TW": "🇹🇼", "KR": "🇰🇷", "CA": "🇨🇦", "AU": "🇦🇺", "NL": "🇳🇱", "IT": "🇮🇹",
 	"ES": "🇪🇸", "SE": "🇸🇪", "NO": "🇳🇴", "DK": "🇩🇰", "FI": "🇫🇮", "CH": "🇨🇭", "AT": "🇦🇹", "BE": "🇧🇪",
 	"BR": "🇧🇷", "IN": "🇮🇳", "TH": "🇹🇭", "MY": "🇲🇾", "VN": "🇻🇳", "PH": "🇵🇭", "ID": "🇮🇩", "UA": "🇺🇦",
