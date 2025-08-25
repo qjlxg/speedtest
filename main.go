@@ -10,7 +10,7 @@ import (
 	"sort"
 	"strings"
 	"time"
-    "sync" // 新增
+	"sync" 
 
 	"github.com/faceair/clash-speedtest/speedtester"
 	"github.com/metacubex/mihomo/log"
@@ -27,7 +27,7 @@ var (
 	downloadSize      = flag.Int("download-size", 50*1024*1024, "download size for testing proxies")
 	uploadSize        = flag.Int("upload-size", 20*1024*1024, "upload size for testing proxies")
 	timeout           = flag.Duration("timeout", time.Second*5, "timeout for testing proxies")
-	concurrent        = flag.Int("concurrent", 20, "download concurrent size") // 默认并发数改为20
+	concurrent        = flag.Int("concurrent", 20, "download concurrent size")
 	outputPath        = flag.String("output", "", "output config file path")
 	stashCompatible   = flag.Bool("stash-compatible", false, "enable stash compatible mode")
 	maxLatency        = flag.Duration("max-latency", 800*time.Millisecond, "filter latency greater than this value")
@@ -51,7 +51,7 @@ func main() {
 	if *configPathsConfig == "" {
 		log.Fatalln("please specify the configuration file")
 	}
-	
+
 	speedTester := speedtester.New(&speedtester.Config{
 		ConfigPaths:      *configPathsConfig,
 		FilterRegex:      *filterRegexConfig,
@@ -72,11 +72,41 @@ func main() {
 		log.Fatalln("load proxies failed: %v", err)
 	}
 
-	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
-	results := make([]*speedtester.Result, 0)
-	var mu sync.Mutex // 新增：用于保护对 results 的并发写入
+	// 新增：先进行快速延迟测试
+	fmt.Println("正在进行快速延迟测试...")
+	bar := progressbar.Default(int64(len(allProxies)), "Ping测试中...")
+	pingResults := make([]*speedtester.Result, 0)
+	var mu sync.Mutex
 
 	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
+		bar.Add(1)
+		bar.Describe(result.ProxyName)
+		mu.Lock()
+		pingResults = append(pingResults, result)
+		mu.Unlock()
+	})
+
+	// 筛选出延迟正常的节点
+	var goodProxies []*speedtester.Proxy
+	for _, result := range pingResults {
+		if result.Latency > 0 && result.Latency < *maxLatency {
+			goodProxies = append(goodProxies, result.Proxy)
+		}
+	}
+	fmt.Printf("\nPing测试完成，找到 %d 个可用节点。\n", len(goodProxies))
+
+	if len(goodProxies) == 0 {
+		fmt.Println("没有找到任何可用的节点。")
+		return
+	}
+
+	// 接下来进行完整的下载和上传测速
+	fmt.Println("\n开始进行完整的下载和上传测速...")
+	bar = progressbar.Default(int64(len(goodProxies)), "下载测速中...")
+	results := make([]*speedtester.Result, 0)
+	mu = sync.Mutex{} // 重置锁
+
+	speedTester.TestProxies(goodProxies, func(result *speedtester.Result) {
 		bar.Add(1)
 		bar.Describe(result.ProxyName)
 		mu.Lock()
@@ -84,6 +114,7 @@ func main() {
 		mu.Unlock()
 	})
 
+	// 排序和输出结果
 	sort.Slice(results, func(i, j int) bool {
 		return results[i].DownloadSpeed > results[j].DownloadSpeed
 	})
@@ -91,7 +122,7 @@ func main() {
 	printResults(results)
 
 	if *outputPath != "" {
-		err = saveOptimizedConfig(results) // 调用新的函数
+		err = saveOptimizedConfig(results)
 		if err != nil {
 			log.Fatalln("save config file failed: %v", err)
 		}
@@ -354,4 +385,67 @@ func generateNodeName(countryCode string, downloadSpeed float64) string {
 
 	speedMBps := downloadSpeed / (1024 * 1024)
 	return fmt.Sprintf("%s %s | ⬇️ %.2f MB/s", flag, strings.ToUpper(countryCode), speedMBps)
+}
+
+// saveOptimizedConfig 负责根据测速结果生成优化的Clash配置文件
+func saveOptimizedConfig(results []*speedtester.Result) error {
+	proxies := make([]map[string]any, 0)
+	proxyNames := []string{}
+
+	// 过滤并处理节点
+	for _, result := range results {
+		// 现有的过滤逻辑
+		if *maxLatency > 0 && result.Latency > *maxLatency {
+			continue
+		}
+		if *downloadSize > 0 && *minDownloadSpeed > 0 && result.DownloadSpeed < *minDownloadSpeed*1024*1024 {
+			continue
+		}
+		if *uploadSize > 0 && *minUploadSpeed > 0 && result.UploadSpeed < *minUploadSpeed*1024*1024 {
+			continue
+		}
+
+		proxyConfig := result.ProxyConfig
+		if *renameNodes {
+			location, err := getIPLocation(proxyConfig["server"].(string))
+			if err != nil || location.CountryCode == "" {
+				proxies = append(proxies, proxyConfig)
+				proxyNames = append(proxyNames, proxyConfig["name"].(string))
+				continue
+			}
+			newName := generateNodeName(location.CountryCode, result.DownloadSpeed)
+			proxyConfig["name"] = newName
+			proxyNames = append(proxyNames, newName)
+		} else {
+			proxyNames = append(proxyNames, proxyConfig["name"].(string))
+		}
+		proxies = append(proxies, proxyConfig)
+	}
+
+	// 创建一个自动选择的代理组
+	proxyGroups := []map[string]interface{}{
+		{
+			"name":     "自动选择",
+			"type":     "url-test",
+			"url":      "http://www.gstatic.com/generate_204",
+			"interval": 300,
+			"proxies":  proxyNames,
+		},
+	}
+
+	// 创建新的 Clash YAML 配置结构
+	newConfig := map[string]interface{}{
+		"proxies":      proxies,
+		"proxy-groups": proxyGroups,
+		"rules": []string{
+			"MATCH,自动选择",
+		},
+	}
+
+	yamlData, err := yaml.Marshal(newConfig)
+	if err != nil {
+		return err
+	}
+
+	return os.WriteFile(*outputPath, yamlData, 0o644)
 }
