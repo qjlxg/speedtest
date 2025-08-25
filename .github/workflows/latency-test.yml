@@ -32,6 +32,7 @@ jobs:
         run: |
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
                                 -output fast-filtered.yaml \
+                                -concurrent 20 
                                 
 
       - name: 提交并推送更改
