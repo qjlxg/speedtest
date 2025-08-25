@@ -105,7 +105,7 @@ func main() {
 	// 第二步: 完整测速，只针对筛选后的节点
 	// ----------------------
 	fmt.Println("\n开始对可用节点进行完整测速...")
-	resultsBar := progressbar.Default(int64(len(goodProxies)), "测速中...")
+	resultsBar := progressbar.Default(int64(len(goodProxies)), "下载测速中...")
 	results := make([]*speedtester.Result, 0, len(goodProxies))
 	mu = sync.Mutex{}
 
