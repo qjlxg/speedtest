@@ -1,0 +1,54 @@
+proxies:
+    - client-fingerprint: random
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 50.43 MB/s"
+      network: ws
+      port: 443
+      server: 172.64.40.161
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 31.64 MB/s"
+      network: ws
+      password: ef0f8959-041a-4c43-8bca-6ee1cf347140
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 29.28 MB/s"
+      password: QCXDxuDlTTMD7jtgHUjIoj
+      port: 8080
+      server: 45.158.171.146
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 20.59 MB/s"
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      region: 德国
+      server: 185.177.229.245
+      type: ss
+proxy-groups:
+    - interval: 300
+      name: 自动选择
+      proxies:
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 50.43 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 31.64 MB/s"
+        - "\U0001F1FB\U0001F1EA VE | ⬇️ 29.28 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 20.59 MB/s"
+      type: url-test
+      url: http://www.gstatic.com/generate_204
+rules:
+    - MATCH,自动选择
