@@ -43,7 +43,7 @@ jobs:
           # 快速测试所有节点，只进行延迟测试，并输出到临时文件
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
                                 -output fast-filtered.yaml \
-                                
+                                -fast
 
       - name: 运行完整测速并筛选节点
         run: |
