@@ -1,60 +1,48 @@
-name: 测速
+name: 完整测速与筛选
 
 on:
-  push:
-    paths:
-      - '.github/workflows/xiecang-speed-test.yml'
-  
+
   schedule:
-    - cron: '0 */8 * * *'
-  # 允许手动触发
+    - cron: '0 0 * * *' # 每天运行一次
   workflow_dispatch:
 
 env:
   TZ: Asia/Shanghai
 
 jobs:
-  run-speedtest:
+  run-full-speed-test:
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: 检出仓库代码
         uses: actions/checkout@v4
-      
+
       - name: 设置 Go 环境
         uses: actions/setup-go@v4
         with:
           go-version: '1.21'
-      
-      # 编译你自己的 clash-speedtest 工具
-      - name: 编译自定义 clash-speedtest 工具
+
+      - name: 编译 clash-speedtest 工具
         run: go build -o clash-speedtest-custom
       
       - name: 备份上次运行结果
         run: |
-          # 获取当前日期时间并格式化
           TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
-          # 直接备份文件，假设 clash.yaml 和 sc 目录都存在
           cp clash.yaml sc/clash_$TIMESTAMP.yaml
           echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
-      
-      - name: 快速延迟预过滤
-        run: ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" -output fast-filtered.yaml -fast
-        
+
       - name: 运行完整测速并筛选节点
         run: |
-          # 使用预过滤后的节点列表进行完整测速和筛选
           ./clash-speedtest-custom -c fast-filtered.yaml \
                                 -output clash.yaml \
                                 -min-download-speed 18.8 \
                                 -rename
-      
+
       - name: 提交并推送更改
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           
-          # 添加新生成的 clash.yaml 文件和所有备份文件
           git add clash.yaml sc/
           
           if ! git diff --cached --quiet; then
