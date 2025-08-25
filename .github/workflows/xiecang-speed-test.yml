@@ -39,12 +39,8 @@ jobs:
           echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
       
       - name: 快速延迟预过滤
-        run: |
-          # 快速测试所有节点，只进行延迟测试，并输出到临时文件
-          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                -output fast-filtered.yaml \
-                                -fast
-
+        run: ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" -output fast-filtered.yaml -fast
+        
       - name: 运行完整测速并筛选节点
         run: |
           # 使用预过滤后的节点列表进行完整测速和筛选
