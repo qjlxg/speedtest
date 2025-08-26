@@ -1,8 +1,298 @@
-proxies: []
+proxies:
+    - cipher: aes-256-cfb
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 83.90 MB/s"
+      obfs: plain
+      password: f8f7aCzcPKbsF8p3
+      port: 989
+      protocol: origin
+      region: 加拿大
+      server: 79.127.233.170
+      type: ssr
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 83.39 MB/s"
+      network: ws
+      port: 443
+      region: 美国
+      server: 143.198.15.103
+      servername: zula.ir
+      skip-cert-verify: true
+      tls: true
+      type: vless
+      udp: true
+      uuid: 5aebb705-2521-49b6-87f0-17dc1d53e77f
+      ws-opts:
+        headers:
+            Host: zula.ir
+        path: /ws
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 77.33 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 64.74.163.130
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 53.04 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 193.29.139.168
+      type: ss
+    - alpn:
+        - h2
+        - http/1.1
+      client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.27 MB/s"
+      network: ws
+      port: 443
+      server: lucky.xiaoyaogpt.com
+      servername: lucky.xiaoyaogpt.com
+      tls: true
+      type: vless
+      uuid: 0265578d-2cbe-4ae8-bf62-87171d2b8b9c
+      ws-opts:
+        headers:
+            host: lucky.xiaoyaogpt.com
+        path: /ws
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.82 MB/s"
+      network: ws
+      port: 80
+      region: 美国
+      server: 63.141.128.1
+      servername: c.jOin.zEdMoDeOn.oNl.
+      skip-cert-verify: false
+      tls: false
+      type: vless
+      udp: true
+      uuid: 7d22d6f7-bd15-4ae3-a41c-707427f51753
+      ws-opts:
+        headers:
+            Host: c.jOin.zEdMoDeOn.oNl.
+        path: /Join-ZEDMODEON-ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON
+    - flow: null
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 31.87 MB/s"
+      network: tcp
+      port: 59332
+      server: 54.37.205.0
+      tls: false
+      type: vless
+      uuid: d2dc2527-33d5-46f3-f39c-36da72fb1a62
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 28.64 MB/s"
+      password: qXvO7zYU7KeaB0Md7DQLow
+      port: 1080
+      server: 51.195.119.47
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 28.55 MB/s"
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      region: 德国
+      server: 185.177.229.245
+      type: ss
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 26.43 MB/s"
+      password: dongtaiwang.com
+      port: 22222
+      region: 印度尼西亚
+      server: 208.87.243.187
+      skip-cert-verify: true
+      sni: www.bing.com
+      tls: false
+      type: hysteria2
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 26.37 MB/s"
+      network: ws
+      password: d5853c53-0f0c-419d-9224-d8bfc18e1cfa
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - alterId: 0
+      cipher: auto
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 25.83 MB/s"
+      network: tcp
+      port: 28213
+      server: 135.125.182.74
+      type: vmess
+      uuid: 81852771-76fb-4e94-e4f1-4e37a698a49a
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 25.47 MB/s"
+      network: ws
+      password: f4a944e2-1d76-4726-b79d-aa3ff83e1a0e
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - flow: null
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.45 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.178.14
+      tls: true
+      type: vless
+      uuid: 252df5e8-0428-4345-b236-a6dae7b3457d
+      ws-opts:
+        headers:
+            Host: MaIncrafT.dPdnS.OrG
+        path: '%2F'
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E6\U0001F1F9 AT | ⬇️ 23.50 MB/s"
+      password: VdswxetVc6AhIps18rtYbm
+      port: 8506
+      server: 95.163.176.37
+      type: ss
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 23.38 MB/s"
+      network: ws
+      password: 4499dcc3-9f88-4c14-acc0-0b3e06a92073
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 22.74 MB/s"
+      network: ws
+      password: e4642dcb-5c8e-48fb-9826-d636cad6e537
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 21.72 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 45.87.175.58
+      type: ss
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 20.90 MB/s"
+      network: ws
+      password: 41529d96-4e99-4809-84bf-7af0d90adcb3
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.31 MB/s"
+      password: zI7kiNZ0UfV9cXB73a4nRD
+      port: 24206
+      region: 荷兰
+      server: 164.92.156.41
+      type: ss
+    - name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 18.31 MB/s"
+      network: ws
+      password: f282b878-8711-45a1-8c69-5564172123c1
+      port: 443
+      server: aio.zipzap.biz.id
+      skip-cert-verify: true
+      sni: aio.zipzap.biz.id
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            host: aio.zipzap.biz.id
+        path: /aioproxybot/129.150.49.58-18650
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EB\U0001F1EE FI | ⬇️ 17.46 MB/s"
+      password: F3nY73di5onWV3gotbpI0Q
+      port: 64519
+      server: 83.147.216.70
+      type: ss
+    - client-fingerprint: random
+      name: "\U0001F1EF\U0001F1F5 JP | ⬇️ 16.84 MB/s"
+      network: ws
+      port: 443
+      server: 13.230.34.30
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - client-fingerprint: random
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 16.13 MB/s"
+      network: ws
+      port: 50000
+      server: 128.140.8.129
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - client-fingerprint: random
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 15.81 MB/s"
+      network: ws
+      port: 443
+      server: 64.227.114.71
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
 proxy-groups:
     - interval: 300
       name: 自动选择
-      proxies: []
+      proxies:
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 83.90 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 83.39 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 77.33 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 53.04 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.27 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.82 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 31.87 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 28.64 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 28.55 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 26.43 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 26.37 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 25.83 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 25.47 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.45 MB/s"
+        - "\U0001F1E6\U0001F1F9 AT | ⬇️ 23.50 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 23.38 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 22.74 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 21.72 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 20.90 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.31 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 18.31 MB/s"
+        - "\U0001F1EB\U0001F1EE FI | ⬇️ 17.46 MB/s"
+        - "\U0001F1EF\U0001F1F5 JP | ⬇️ 16.84 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 16.13 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 15.81 MB/s"
       type: url-test
       url: http://www.gstatic.com/generate_204
 rules:
