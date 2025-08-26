@@ -45,7 +45,7 @@ const (
 	colorReset  = "\033[0m"
 )
 
-// saveResultsToFile 将测试结果保存到 JSON 文件
+// saveResultsToFile saves the test results to a JSON file.
 func saveResultsToFile(results []*speedtester.Result, filename string) error {
 	data, err := json.MarshalIndent(results, "", "  ")
 	if err != nil {
@@ -54,12 +54,12 @@ func saveResultsToFile(results []*speedtester.Result, filename string) error {
 	return os.WriteFile(filename, data, 0644)
 }
 
-// loadResultsFromFile 从 JSON 文件加载测试结果
+// loadResultsFromFile loads the test results from a JSON file.
 func loadResultsFromFile(filename string) ([]*speedtester.Result, error) {
 	data, err := os.ReadFile(filename)
 	if err != nil {
 		if os.IsNotExist(err) {
-			return nil, nil // 文件不存在是正常情况，返回空结果
+			return nil, nil // Return empty results if the file doesn't exist
 		}
 		return nil, err
 	}
@@ -98,22 +98,18 @@ func main() {
 		log.Fatalln("load proxies failed: %v", err)
 	}
 
-	// 加载上次的测试结果
 	previousResults, err := loadResultsFromFile(*resultsFile)
 	if err != nil {
 		log.Fatalln("failed to load previous results: %v", err)
 	}
 
-	// 将上次所有的结果转换为 map，以便快速查找
-	previousResultsMap := make(map[string]*speedtester.Result)
+	previousResultsMap := make(map[string]bool)
 	for _, result := range previousResults {
-		previousResultsMap[result.ProxyName] = result
+		previousResultsMap[result.ProxyName] = true
 	}
 
-	// 筛选出需要重新测试的代理节点（即新增的节点）
-	proxiesToTest := make([]*speedtester.Proxy, 0)
+	var proxiesToTest []*speedtester.Proxy
 	for _, proxy := range allProxies {
-		// 如果这个节点不在上次的结果中，就重新测试
 		if _, ok := previousResultsMap[proxy.Name()]; !ok {
 			proxiesToTest = append(proxiesToTest, proxy)
 		} else {
@@ -147,14 +143,10 @@ func main() {
 		mu.Unlock()
 	})
 
-	// 合并新旧结果
-	finalResults := make([]*speedtester.Result, 0, len(allProxies))
-	// 将上次的所有结果拷贝过来
+	finalResults := make([]*speedtester.Result, 0)
 	finalResults = append(finalResults, previousResults...)
-	// 遍历本次新测试的结果
 	for _, newResult := range newResults {
 		found := false
-		// 检查它是否是新节点，如果不是，则更新它
 		for i, oldResult := range finalResults {
 			if oldResult.ProxyName == newResult.ProxyName {
 				finalResults[i] = newResult
@@ -162,20 +154,17 @@ func main() {
 				break
 			}
 		}
-		// 如果是新节点，则追加到结果中
 		if !found {
 			finalResults = append(finalResults, newResult)
 		}
 	}
 
-	// 重新排序
 	sort.Slice(finalResults, func(i, j int) bool {
 		return finalResults[i].DownloadSpeed > finalResults[j].DownloadSpeed
 	})
 
 	printResults(finalResults)
 
-	// 保存完整的测试结果以备下次使用
 	if err := saveResultsToFile(finalResults, *resultsFile); err != nil {
 		log.Fatalln("failed to save final results: %v", err)
 	}
@@ -184,20 +173,19 @@ func main() {
 	if *outputPath != "" {
 		err = saveOptimizedConfig(finalResults)
 		if err != nil {
-			log.Fatalln("save config file failed: %v", err)
+				log.Fatalln("save config file failed: %v", err)
 		}
 		fmt.Printf("\nsave config file to: %s\n", *outputPath)
 	}
 }
 
-// saveOptimizedConfig 根据测速结果生成优化的 Clash 配置文件
+// saveOptimizedConfig generates an optimized Clash configuration based on the speed test results.
 func saveOptimizedConfig(results []*speedtester.Result) error {
 	proxies := make([]map[string]any, 0)
 	proxyNames := []string{}
 
 	filteredResults := make([]*speedtester.Result, 0)
 	for _, result := range results {
-		// 过滤不合格的节点
 		if *maxLatency > 0 && result.Latency > *maxLatency {
 			continue
 		}
@@ -239,7 +227,6 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 		proxies = append(proxies, proxyConfig)
 	}
 
-	// 创建一个自动选择的代理组
 	proxyGroups := []map[string]interface{}{
 		{
 			"name":     "自动选择",
@@ -250,7 +237,6 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 		},
 	}
 
-	// 创建新的 Clash YAML 配置结构
 	newConfig := map[string]interface{}{
 		"proxies":      proxies,
 		"proxy-groups": proxyGroups,
@@ -266,7 +252,6 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 
 	return os.WriteFile(*outputPath, yamlData, 0o644)
 }
-
 
 func printResults(results []*speedtester.Result) {
 	table := tablewriter.NewWriter(os.Stdout)
