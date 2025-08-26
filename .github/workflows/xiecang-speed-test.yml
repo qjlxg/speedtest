@@ -3,10 +3,12 @@ name: 完整测速
 on:
   push:
     paths:
-    - 'fast-filtered.yaml'
+      - 'main.go' # 当 main.go 文件有更新时触发
+      - 'go.mod' # 当 go.mod 文件有更新时触发
+      - 'go.sum' # 当 go.sum 文件有更新时触发
   schedule:
     - cron: '0 0 * * *' # 每天运行一次
-  workflow_dispatch:
+  workflow_dispatch: # 允许手动触发
 
 env:
   TZ: Asia/Shanghai
@@ -20,27 +22,38 @@ jobs:
         uses: actions/checkout@v4
 
       - name: 设置 Go 环境
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
           go-version: '1.21'
+          cache: true
+
+      - name: 初始化并整理 Go 模块
+        run: |
+          go mod init clash-speedtest || true
+          go mod tidy
 
       - name: 编译 clash-speedtest 工具
         run: go build -o clash-speedtest-custom
-      
+
       - name: 备份上次运行结果
         run: |
-          TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
-          cp clash.yaml sc/clash_$TIMESTAMP.yaml
-          echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
+          if [ -f "clash.yaml" ]; then
+            TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+            mkdir -p sc
+            cp clash.yaml sc/clash_$TIMESTAMP.yaml
+            echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
+          else
+            echo "未找到 clash.yaml，无需备份。"
+          fi
 
       - name: 运行完整测速并筛选节点
         run: |
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                -output clash.yaml \
-                                -min-download-speed 15.8 \
-                                -concurrent 120 \
-                                -max-latency 808ms \
-                                -rename
+                                   -output clash.yaml \
+                                   -min-download-speed 15.8 \
+                                   -concurrent 120 \
+                                   -max-latency 808ms \
+                                   -rename
 
       - name: 提交并推送更改
         run: |
