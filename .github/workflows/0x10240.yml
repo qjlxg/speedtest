@@ -1,11 +1,10 @@
-name: Mihomo 测速（完整版）
-
+name: 0x10240.yml
 on:
   push:
     branches:
       - main
     paths:
-      - '.github/workflows/mihomo-speedtest-full.yml'
+      - '.github/workflows/0x10240.yml'
   
   schedule:
     - cron: '0 */8 * * *'  # 每8小时运行一次
