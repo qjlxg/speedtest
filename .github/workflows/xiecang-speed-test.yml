@@ -76,7 +76,7 @@ jobs:
                 echo "Rebase 失败，尝试解决冲突..."
                 # 强制使用本地的 clash.yaml 版本，并解决冲突
                 git checkout --theirs clash.yaml
-                git add clash.yaml
+                git add clash.yaml speed-test-results.json
                 git rebase --continue
               fi
               
