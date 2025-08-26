@@ -43,8 +43,7 @@ jobs:
                             -output OP404OP.yaml \
                             -min-speed 15.8 \
                             -concurrent 120 \
-                            -max-latency 808ms \
-                            -rename
+                            -max-latency 808ms
 
       - name: 提交并推送更改
         run: |
