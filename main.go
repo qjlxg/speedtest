@@ -9,8 +9,8 @@ import (
 	"os"
 	"sort"
 	"strings"
+	"sync"
 	"time"
-    "sync" // 新增
 
 	"github.com/faceair/clash-speedtest/speedtester"
 	"github.com/metacubex/mihomo/log"
@@ -27,7 +27,7 @@ var (
 	downloadSize      = flag.Int("download-size", 50*1024*1024, "download size for testing proxies")
 	uploadSize        = flag.Int("upload-size", 20*1024*1024, "upload size for testing proxies")
 	timeout           = flag.Duration("timeout", time.Second*5, "timeout for testing proxies")
-	concurrent        = flag.Int("concurrent", 20, "download concurrent size") // 默认并发数改为20
+	concurrent        = flag.Int("concurrent", 20, "download concurrent size")
 	outputPath        = flag.String("output", "", "output config file path")
 	stashCompatible   = flag.Bool("stash-compatible", false, "enable stash compatible mode")
 	maxLatency        = flag.Duration("max-latency", 800*time.Millisecond, "filter latency greater than this value")
@@ -74,7 +74,7 @@ func main() {
 
 	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
 	results := make([]*speedtester.Result, 0)
-	var mu sync.Mutex // 新增：用于保护对 results 的并发写入
+	var mu sync.Mutex
 
 	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
 		bar.Add(1)
@@ -91,7 +91,7 @@ func main() {
 	printResults(results)
 
 	if *outputPath != "" {
-		err = saveOptimizedConfig(results) // 调用新的函数
+		err = saveOptimizedConfig(results)
 		if err != nil {
 			log.Fatalln("save config file failed: %v", err)
 		}
@@ -99,14 +99,13 @@ func main() {
 	}
 }
 
-// saveOptimizedConfig 负责根据测速结果生成优化的Clash配置文件
+// saveOptimizedConfig 根据测速结果生成优化的 Clash 配置文件
 func saveOptimizedConfig(results []*speedtester.Result) error {
 	proxies := make([]map[string]any, 0)
 	proxyNames := []string{}
 
-	// 过滤并处理节点
 	for _, result := range results {
-		// 现有的过滤逻辑
+		// 过滤不合格的节点
 		if *maxLatency > 0 && result.Latency > *maxLatency {
 			continue
 		}
@@ -163,7 +162,6 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 }
 
 func printResults(results []*speedtester.Result) {
-    // ... (此函数保持原样)
 	table := tablewriter.NewWriter(os.Stdout)
 	var headers []string
 	if *fastMode {
@@ -198,21 +196,20 @@ func printResults(results []*speedtester.Result) {
 	table.SetBorder(false)
 	table.SetTablePadding("\t")
 	table.SetNoWhiteSpace(true)
-	table.SetColMinWidth(0, 4)  // 序号
-	table.SetColMinWidth(1, 20) // 节点名称
-	table.SetColMinWidth(2, 8)  // 类型
-	table.SetColMinWidth(3, 8)  // 延迟
+	table.SetColMinWidth(0, 4)
+	table.SetColMinWidth(1, 20)
+	table.SetColMinWidth(2, 8)
+	table.SetColMinWidth(3, 8)
 	if !*fastMode {
-		table.SetColMinWidth(4, 8)  // 抖动
-		table.SetColMinWidth(5, 8)  // 丢包率
-		table.SetColMinWidth(6, 12) // 下载速度
-		table.SetColMinWidth(7, 12) // 上传速度
+		table.SetColMinWidth(4, 8)
+		table.SetColMinWidth(5, 8)
+		table.SetColMinWidth(6, 12)
+		table.SetColMinWidth(7, 12)
 	}
 
 	for i, result := range results {
 		idStr := fmt.Sprintf("%d.", i+1)
 
-		// 延迟颜色
 		latencyStr := result.FormatLatency()
 		if result.Latency > 0 {
 			if result.Latency < 800*time.Millisecond {
@@ -239,7 +236,6 @@ func printResults(results []*speedtester.Result) {
 			jitterStr = colorRed + jitterStr + colorReset
 		}
 
-		// 丢包率颜色
 		packetLossStr := result.FormatPacketLoss()
 		if result.PacketLoss < 10 {
 			packetLossStr = colorGreen + packetLossStr + colorReset
@@ -249,7 +245,6 @@ func printResults(results []*speedtester.Result) {
 			packetLossStr = colorRed + packetLossStr + colorReset
 		}
 
-		// 下载速度颜色 (以MB/s为单位判断)
 		downloadSpeed := result.DownloadSpeed / (1024 * 1024)
 		downloadSpeedStr := result.FormatDownloadSpeed()
 		if downloadSpeed >= 10 {
@@ -260,7 +255,6 @@ func printResults(results []*speedtester.Result) {
 			downloadSpeedStr = colorRed + downloadSpeedStr + colorReset
 		}
 
-		// 上传速度颜色
 		uploadSpeed := result.UploadSpeed / (1024 * 1024)
 		uploadSpeedStr := result.FormatUploadSpeed()
 		if uploadSpeed >= 5 {
