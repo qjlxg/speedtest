@@ -1,4 +1,4 @@
-name: 0x10240.yml
+name: Mihomo 测速（完整版）
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - '.github/workflows/0x10240.yml'
   
   schedule:
-    - cron: '0 */8 * * *'  # 每8小时运行一次
+    - cron: '0 */8 * * *'
   
   workflow_dispatch:
 
@@ -22,57 +22,25 @@ jobs:
     steps:
       - name: 检出仓库代码
         uses: actions/checkout@v4
-
-      - name: 设置 Go 环境
-        uses: actions/setup-go@v4
+      
+      # 使用 Docker 容器来执行测速任务
+      - name: 运行 mihomo-speedtest
+        uses: docker://golang:1.21-alpine
         with:
-          go-version: '1.21'
+          args: |
+            go install github.com/0x10240/mihomo-speedtest@latest
+            mihomo-speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+                             -output 0x10240.yaml \
+                             -concurrent 50 \
+                             -delay \
+                             -timeout 5s
       
-      # 编译并安装 mihomo-speedtest 工具
-      - name: 安装 mihomo-speedtest 工具
-        run: |
-          git clone https://github.com/0x10240/mihomo-speedtest.git
-          cd mihomo-speedtest
-          go build -o mihomo-speedtest .
-          sudo mv mihomo-speedtest /usr/local/bin/
-
-      - name: 备份上次运行结果
-        run: |
-          # 检查是否有文件需要备份
-          if [ -f "clash.yaml" ]; then
-            TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
-            mkdir -p sc
-            cp clash.yaml sc/clash_$TIMESTAMP.yaml
-            echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
-          else
-            echo "clash.yaml 文件不存在，跳过备份。"
-          fi
-      
-      - name: 快速延迟预过滤
-        run: |
-          # 快速测试所有节点，只进行延迟测试，并输出到临时文件
-          mihomo-speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                         -output fast-filtered.yaml \
-                         -concurrent 50 \
-                         -delay \
-                         -timeout 5s
-
-      - name: 运行完整测速并筛选节点
-        run: |
-          # 使用预过滤后的节点列表进行完整测速和筛选
-          mihomo-speedtest -c fast-filtered.yaml \
-                         -output clash.yaml \
-                         -size 50 \
-                         -sort b \
-                         -concurrent 50 \
-                         -timeout 3s
-
       - name: 提交并推送更改
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           
-          git add clash.yaml
+          git add 0x10240.yaml
           
           if ! git diff --cached --quiet; then
             git commit -m "chore: Update and filter Clash nodes via speedtest"
