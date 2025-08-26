@@ -1,0 +1,66 @@
+name: 完整测速
+
+on:
+  push:
+    paths:
+      - 'fast-filtered.yaml'
+  schedule:
+    - cron: '0 0 * * *' # 每天运行一次
+  workflow_dispatch:
+
+env:
+  TZ: Asia/Shanghai
+
+jobs:
+  run-full-speed-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 检出仓库代码
+        uses: actions/checkout@v4
+
+      - name: 下载 clash-speedtest 工具
+        run: |
+          # 替换为项目的最新 Release 链接
+          LATEST_RELEASE_URL=$(curl -s "https://api.github.com/repos/OP404OP/clash-speedtest/releases/latest" | grep "browser_download_url.*linux-amd64" | cut -d : -f 2,3 | tr -d \")
+          curl -L -o clash-speedtest $LATEST_RELEASE_URL
+          chmod +x clash-speedtest
+
+      - name: 备份上次运行结果
+        run: |
+          if [ -f "OP404OP.yaml" ]; then
+            TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+            mkdir -p sc
+            cp OP404OP.yaml sc/clash_$TIMESTAMP.yaml || true
+            echo "已成功备份 OP404OP.yaml 到 sc/clash_$TIMESTAMP.yaml"
+          else
+            echo "未找到 OP404OP.yaml，无需备份。"
+          fi
+
+      - name: 运行完整测速并筛选节点
+        run: |
+          ./clash-speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+                            -output OP404OP.yaml \
+                            -min-download-speed 15.8 \
+                            -concurrent 120 \
+                            -max-latency 808ms \
+                            -rename
+
+      - name: 提交并推送更改
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
+          
+          git add OP404OP.yaml sc/
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: Update and filter Clash nodes via speedtest"
+            
+            for i in {1..3}; do
+              git pull --rebase
+              git push && break
+              sleep 5
+            done
+          else
+            echo "没有节点更改，无需提交。"
+          fi
