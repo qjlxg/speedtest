@@ -21,9 +21,9 @@ jobs:
 
       - name: 下载 clash-speedtest 工具
         run: |
-          # 替换为项目的最新 Release 链接
-          LATEST_RELEASE_URL=$(curl -s "https://api.github.com/repos/OP404OP/clash-speedtest/releases/latest" | grep "browser_download_url.*linux-amd64" | cut -d : -f 2,3 | tr -d \")
-          curl -L -o clash-speedtest $LATEST_RELEASE_URL
+          # 直接使用 v1.6.3 版本的 Linux-x86_64 二进制文件下载链接
+          TOOL_URL="https://github.com/OP404OP/clash-speedtest/releases/download/v1.6.3/clash-speedtest-linux-x86_64"
+          curl -L -o clash-speedtest "$TOOL_URL"
           chmod +x clash-speedtest
 
       - name: 备份上次运行结果
