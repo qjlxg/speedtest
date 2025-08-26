@@ -1,11 +1,14 @@
-name: 0x10240测试
+name: Mihomo 测速（完整版）
 
 on:
   push:
     branches:
       - main
     paths:
-      - '.github/workflows/0x10240.yml'
+      - '.github/workflows/mihomo-speedtest-full.yml'
+  
+  schedule:
+    - cron: '0 */8 * * *'  # 每8小时运行一次
   
   workflow_dispatch:
 
@@ -13,7 +16,7 @@ env:
   TZ: Asia/Shanghai
 
 jobs:
-  run-latency-test:
+  run-speedtest:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,27 +28,50 @@ jobs:
         with:
           go-version: '1.21'
       
-      # 编译新的 mihomo_speedtest 工具
-      - name: 编译 mihomo_speedtest 工具
+      # 编译并安装 mihomo-speedtest 工具
+      - name: 安装 mihomo-speedtest 工具
         run: go install github.com/0x10240/mihomo-speedtest@latest
 
-      - name: 运行快速延迟预过滤
+      - name: 备份上次运行结果
         run: |
-          # 使用新的工具进行测速，注意参数已经改变
-          mihomo_speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                         -output 0x10240.yaml \
-                         -concurrent 20 \
-                         -delay
+          # 检查是否有文件需要备份
+          if [ -f "clash.yaml" ]; then
+            TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+            mkdir -p sc
+            cp clash.yaml sc/clash_$TIMESTAMP.yaml
+            echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
+          else
+            echo "clash.yaml 文件不存在，跳过备份。"
+          fi
       
+      - name: 快速延迟预过滤
+        run: |
+          # 快速测试所有节点，只进行延迟测试，并输出到临时文件
+          mihomo-speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+                         -output fast-filtered.yaml \
+                         -concurrent 50 \
+                         -delay \
+                         -timeout 5s
+
+      - name: 运行完整测速并筛选节点
+        run: |
+          # 使用预过滤后的节点列表进行完整测速
+          mihomo-speedtest -c fast-filtered.yaml \
+                         -output clash.yaml \
+                         -size 50 \
+                         -sort b \
+                         -concurrent 50 \
+                         -timeout 3s
+
       - name: 提交并推送更改
         run: |
           git config --global user.name 'github-actions'
           git config --global user.email 'github-actions@github.com'
           
-          git add 0x10240.yaml
+          git add clash.yaml
           
           if ! git diff --cached --quiet; then
-            git commit -m "chore: Update Clash nodes (latency filter)"
+            git commit -m "chore: Update and filter Clash nodes via speedtest"
             git pull --rebase
             git push
           else
