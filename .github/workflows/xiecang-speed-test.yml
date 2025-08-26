@@ -45,11 +45,12 @@ jobs:
           token: ${{ secrets.AGGREGATOR_PAT }}
           path: aggregator
 
-      - name: 运行完整测速并筛选节点
+      - name: 运行完整测速并生成节点文件
         run: |
           cd speedtest
+          # 在当前工作流仓库的根目录下生成 clash.yaml
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                   -output ../aggregator/clash.yaml \
+                                   -output ../clash.yaml \
                                    -min-download-speed 15.8 \
                                    -concurrent 120 \
                                    -rename
@@ -62,21 +63,24 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # 复制到 data 目录，以便提交到远程
-          cp clash.yaml data/clash.yaml
+          # 将工作流根目录的 clash.yaml 复制到 aggregator 仓库的 data 目录
+          cp ../clash.yaml data/clash.yaml
 
-          git add clash.yaml data/clash.yaml
+          # 只提交 data/clash.yaml 到远程仓库
+          git add data/clash.yaml
           
           if ! git diff --cached --quiet; then
             git commit -m "chore: Update Clash nodes via speedtest"
             
             for i in {1..3}; do
+              # 在 URL 中嵌入 token，用于身份验证
               git pull --rebase https://x-access-token:${{ secrets.AGGREGATOR_PAT }}@github.com/qjlxg/aggregator.git
               
               if [ $? -ne 0 ]; then
                 echo "Rebase 失败，尝试解决冲突..."
-                git checkout --theirs clash.yaml data/clash.yaml
-                git add clash.yaml data/clash.yaml
+                # 强制使用本地的 data/clash.yaml 版本，并解决冲突
+                git checkout --theirs data/clash.yaml
+                git add data/clash.yaml
                 git rebase --continue
               fi
               
