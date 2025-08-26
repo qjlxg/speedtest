@@ -35,6 +35,7 @@ var (
 	minUploadSpeed    = flag.Float64("min-upload-speed", 2, "filter upload speed less than this value(unit: MB/s)")
 	renameNodes       = flag.Bool("rename", false, "rename nodes with IP location and speed")
 	fastMode          = flag.Bool("fast", false, "fast mode, only test latency")
+	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results")
 )
 
 const (
@@ -43,6 +44,31 @@ const (
 	colorYellow = "\033[33m"
 	colorReset  = "\033[0m"
 )
+
+// saveResultsToFile 将测试结果保存到 JSON 文件
+func saveResultsToFile(results []*speedtester.Result, filename string) error {
+	data, err := json.MarshalIndent(results, "", "  ")
+	if err != nil {
+		return err
+	}
+	return os.WriteFile(filename, data, 0644)
+}
+
+// loadResultsFromFile 从 JSON 文件加载测试结果
+func loadResultsFromFile(filename string) ([]*speedtester.Result, error) {
+	data, err := os.ReadFile(filename)
+	if err != nil {
+		if os.IsNotExist(err) {
+			return nil, nil // 文件不存在是正常情况，返回空结果
+		}
+		return nil, err
+	}
+	var results []*speedtester.Result
+	if err := json.Unmarshal(data, &results); err != nil {
+		return nil, err
+	}
+	return results, nil
+}
 
 func main() {
 	flag.Parse()
@@ -72,26 +98,85 @@ func main() {
 		log.Fatalln("load proxies failed: %v", err)
 	}
 
-	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
-	results := make([]*speedtester.Result, 0)
+	// 加载上次的测试结果
+	previousResults, err := loadResultsFromFile(*resultsFile)
+	if err != nil {
+		log.Fatalln("failed to load previous results: %v", err)
+	}
+
+	// 将上次成功的结果转换为 map，以便快速查找
+	previousSuccessfulResultsMap := make(map[string]*speedtester.Result)
+	for _, result := range previousResults {
+		// 只有上次测试成功的节点才会被保留
+		if result.Latency > 0 && result.DownloadSpeed > 0 {
+			previousSuccessfulResultsMap[result.ProxyName] = result
+		}
+	}
+
+	// 筛选出需要重新测试的代理节点
+	proxiesToTest := make([]*speedtester.Proxy, 0)
+	for _, proxy := range allProxies {
+		// 如果这个节点不在上次的成功列表中，就重新测试
+		if _, ok := previousSuccessfulResultsMap[proxy.Name]; !ok {
+			proxiesToTest = append(proxiesToTest, proxy)
+		} else {
+			log.Infoln("Skipping already successful proxy: %s", proxy.Name)
+		}
+	}
+
+	if len(proxiesToTest) == 0 {
+		fmt.Println("所有节点均已成功测试，无需重新测试。")
+		printResults(previousResults)
+		if *outputPath != "" {
+			err = saveOptimizedConfig(previousResults)
+			if err != nil {
+				log.Fatalln("save config file failed: %v", err)
+			}
+			fmt.Printf("\nsave config file to: %s\n", *outputPath)
+		}
+		return
+	}
+
+	fmt.Printf("开始测试 %d 个节点...\n", len(proxiesToTest))
+	bar := progressbar.Default(int64(len(proxiesToTest)), "测试中...")
+	newResults := make([]*speedtester.Result, 0)
 	var mu sync.Mutex
 
-	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
+	speedTester.TestProxies(proxiesToTest, func(result *speedtester.Result) {
 		bar.Add(1)
 		bar.Describe(result.ProxyName)
 		mu.Lock()
-		results = append(results, result)
+		newResults = append(newResults, result)
 		mu.Unlock()
 	})
 
-	sort.Slice(results, func(i, j int) bool {
-		return results[i].DownloadSpeed > results[j].DownloadSpeed
+	// 合并新旧结果
+	finalResults := make([]*speedtester.Result, 0, len(allProxies))
+	// 先将上次成功的结果加进来
+	for _, result := range previousResults {
+		// 只有上次测试成功的节点才会被保留
+		if result.Latency > 0 && result.DownloadSpeed > 0 {
+			finalResults = append(finalResults, result)
+		}
+	}
+	// 再将本次新测试的结果加进来
+	finalResults = append(finalResults, newResults...)
+
+	// 重新排序
+	sort.Slice(finalResults, func(i, j int) bool {
+		return finalResults[i].DownloadSpeed > finalResults[j].DownloadSpeed
 	})
 
-	printResults(results)
+	printResults(finalResults)
+
+	// 保存完整的测试结果以备下次使用
+	if err := saveResultsToFile(finalResults, *resultsFile); err != nil {
+		log.Fatalln("failed to save final results: %v", err)
+	}
+	fmt.Printf("complete results saved to: %s\n", *resultsFile)
 
 	if *outputPath != "" {
-		err = saveOptimizedConfig(results)
+		err = saveOptimizedConfig(finalResults)
 		if err != nil {
 			log.Fatalln("save config file failed: %v", err)
 		}
