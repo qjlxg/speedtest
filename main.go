@@ -51,7 +51,7 @@ func main() {
 	if *configPathsConfig == "" {
 		log.Fatalln("please specify the configuration file")
 	}
-	
+
 	speedTester := speedtester.New(&speedtester.Config{
 		ConfigPaths:      *configPathsConfig,
 		FilterRegex:      *filterRegexConfig,
@@ -104,6 +104,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 	proxies := make([]map[string]any, 0)
 	proxyNames := []string{}
 
+	filteredResults := make([]*speedtester.Result, 0)
 	for _, result := range results {
 		// 过滤不合格的节点
 		if *maxLatency > 0 && result.Latency > *maxLatency {
@@ -115,21 +116,35 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 		if *uploadSize > 0 && *minUploadSpeed > 0 && result.UploadSpeed < *minUploadSpeed*1024*1024 {
 			continue
 		}
+		filteredResults = append(filteredResults, result)
+	}
 
-		proxyConfig := result.ProxyConfig
-		if *renameNodes {
-			location, err := getIPLocation(proxyConfig["server"].(string))
-			if err != nil || location.CountryCode == "" {
-				proxies = append(proxies, proxyConfig)
-				proxyNames = append(proxyNames, proxyConfig["name"].(string))
-				continue
-			}
-			newName := generateNodeName(location.CountryCode, result.DownloadSpeed)
-			proxyConfig["name"] = newName
-			proxyNames = append(proxyNames, newName)
-		} else {
-			proxyNames = append(proxyNames, proxyConfig["name"].(string))
+	if *renameNodes {
+		const concurrentLimit = 10
+		var wg sync.WaitGroup
+		sem := make(chan struct{}, concurrentLimit)
+
+		for _, result := range filteredResults {
+			wg.Add(1)
+			sem <- struct{}{}
+			go func(result *speedtester.Result) {
+				defer wg.Done()
+				defer func() { <-sem }()
+
+				proxyConfig := result.ProxyConfig
+				location, err := getIPLocation(proxyConfig["server"].(string))
+				if err == nil && location.CountryCode != "" {
+					newName := generateNodeName(location.CountryCode, result.DownloadSpeed)
+					proxyConfig["name"] = newName
+				}
+			}(result)
 		}
+		wg.Wait()
+	}
+
+	for _, result := range filteredResults {
+		proxyConfig := result.ProxyConfig
+		proxyNames = append(proxyNames, proxyConfig["name"].(string))
 		proxies = append(proxies, proxyConfig)
 	}
 
@@ -160,6 +175,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 
 	return os.WriteFile(*outputPath, yamlData, 0o644)
 }
+
 
 func printResults(results []*speedtester.Result) {
 	table := tablewriter.NewWriter(os.Stdout)
@@ -303,7 +319,7 @@ var countryFlags = map[string]string{
 	"US": "🇺🇸", "CN": "🇨🇳", "GB": "🇬🇧", "UK": "🇬🇧", "JP": "🇯🇵", "DE": "🇩🇪", "FR": "🇫🇷", "RU": "🇷🇺",
 	"SG": "🇸🇬", "HK": "🇭🇰", "TW": "🇹🇼", "KR": "🇰🇷", "CA": "🇨🇦", "AU": "🇦🇺", "NL": "🇳🇱", "IT": "🇮🇹",
 	"ES": "🇪🇸", "SE": "🇸🇪", "NO": "🇳🇴", "DK": "🇩🇰", "FI": "🇫🇮", "CH": "🇨🇭", "AT": "🇦🇹", "BE": "🇧🇪",
-	"BR": "🇧🇷", "IN": "🇮🇳", "TH": "🇹🇭", "MY": "🇲🇾", "VN": "🇻🇳", "PH": "🇵🇭", "ID": "🇮🇩", "UA": "🇺🇦",
+	"BR": "🇧🇷", "IN": "🇮🇳", "TH": "🇹🇭", "MY": "🇲🇾", "🇲🇳": "🇲🇳", "VN": "🇻🇳", "PH": "🇵🇭", "ID": "🇮🇩", "UA": "🇺🇦",
 	"TR": "🇹🇷", "IL": "🇮🇱", "AE": "🇦🇪", "SA": "🇸🇦", "EG": "🇪🇬", "ZA": "🇿🇦", "NG": "🇳🇬", "KE": "🇰🇪",
 	"RO": "🇷🇴", "PL": "🇵🇱", "CZ": "🇨🇿", "HU": "🇭🇺", "BG": "🇧🇬", "HR": "🇭🇷", "SI": "🇸🇮", "SK": "🇸🇰",
 	"LT": "🇱🇹", "LV": "🇱🇻", "EE": "🇪🇪", "PT": "🇵🇹", "GR": "🇬🇷", "IE": "🇮🇪", "LU": "🇱🇺", "MT": "🇲🇹",
