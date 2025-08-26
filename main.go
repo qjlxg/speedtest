@@ -116,6 +116,8 @@ func main() {
 		// 如果这个节点不在上次的结果中，就重新测试
 		if _, ok := previousResultsMap[proxy.Name()]; !ok {
 			proxiesToTest = append(proxiesToTest, proxy)
+		} else {
+			log.Infoln("Skipping already tested proxy: %s", proxy.Name())
 		}
 	}
 
@@ -147,10 +149,24 @@ func main() {
 
 	// 合并新旧结果
 	finalResults := make([]*speedtester.Result, 0, len(allProxies))
-	// 先将上次的所有结果加进来
+	// 将上次的所有结果拷贝过来
 	finalResults = append(finalResults, previousResults...)
-	// 再将本次新测试的结果追加到末尾
-	finalResults = append(finalResults, newResults...)
+	// 遍历本次新测试的结果
+	for _, newResult := range newResults {
+		found := false
+		// 检查它是否是新节点，如果不是，则更新它
+		for i, oldResult := range finalResults {
+			if oldResult.ProxyName == newResult.ProxyName {
+				finalResults[i] = newResult
+				found = true
+				break
+			}
+		}
+		// 如果是新节点，则追加到结果中
+		if !found {
+			finalResults = append(finalResults, newResult)
+		}
+	}
 
 	// 重新排序
 	sort.Slice(finalResults, func(i, j int) bool {
