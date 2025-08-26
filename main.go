@@ -35,7 +35,7 @@ var (
 	minUploadSpeed    = flag.Float64("min-upload-speed", 2, "filter upload speed less than this value(unit: MB/s)")
 	renameNodes       = flag.Bool("rename", false, "rename nodes with IP location and speed")
 	fastMode          = flag.Bool("fast", false, "fast mode, only test latency")
-	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results") // 新增：用于指定结果文件
+	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results")
 )
 
 const (
@@ -104,28 +104,23 @@ func main() {
 		log.Fatalln("failed to load previous results: %v", err)
 	}
 
-	// 将上次成功的结果转换为 map，以便快速查找
-	previousSuccessfulResultsMap := make(map[string]*speedtester.Result)
+	// 将上次所有的结果转换为 map，以便快速查找
+	previousResultsMap := make(map[string]*speedtester.Result)
 	for _, result := range previousResults {
-		// 只有上次测试成功的节点才会被保留
-		if result.Latency > 0 && result.DownloadSpeed > 0 {
-			previousSuccessfulResultsMap[result.ProxyName] = result
-		}
+		previousResultsMap[result.ProxyName] = result
 	}
 
-	// 筛选出需要重新测试的代理节点
+	// 筛选出需要重新测试的代理节点（即新增的节点）
 	proxiesToTest := make([]*speedtester.Proxy, 0)
 	for _, proxy := range allProxies {
-		// 如果这个节点不在上次的成功列表中，就重新测试
-		if _, ok := previousSuccessfulResultsMap[proxy.Name()]; !ok {
+		// 如果这个节点不在上次的结果中，就重新测试
+		if _, ok := previousResultsMap[proxy.Name()]; !ok {
 			proxiesToTest = append(proxiesToTest, proxy)
-		} else {
-			log.Infoln("Skipping already successful proxy: %s", proxy.Name())
 		}
 	}
 
 	if len(proxiesToTest) == 0 {
-		fmt.Println("所有节点均已成功测试，无需重新测试。")
+		fmt.Println("没有发现新节点，无需重新测试。")
 		printResults(previousResults)
 		if *outputPath != "" {
 			err = saveOptimizedConfig(previousResults)
@@ -137,7 +132,7 @@ func main() {
 		return
 	}
 
-	fmt.Printf("开始测试 %d 个节点...\n", len(proxiesToTest))
+	fmt.Printf("开始测试 %d 个新增节点...\n", len(proxiesToTest))
 	bar := progressbar.Default(int64(len(proxiesToTest)), "测试中...")
 	newResults := make([]*speedtester.Result, 0)
 	var mu sync.Mutex
@@ -152,14 +147,9 @@ func main() {
 
 	// 合并新旧结果
 	finalResults := make([]*speedtester.Result, 0, len(allProxies))
-	// 先将上次成功的结果加进来
-	for _, result := range previousResults {
-		// 只有上次测试成功的节点才会被保留
-		if result.Latency > 0 && result.DownloadSpeed > 0 {
-			finalResults = append(finalResults, result)
-		}
-	}
-	// 再将本次新测试的结果加进来
+	// 先将上次的所有结果加进来
+	finalResults = append(finalResults, previousResults...)
+	// 再将本次新测试的结果追加到末尾
 	finalResults = append(finalResults, newResults...)
 
 	// 重新排序
