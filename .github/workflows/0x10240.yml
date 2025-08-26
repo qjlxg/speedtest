@@ -27,7 +27,7 @@ jobs:
       
       # 编译新的 mihomo_speedtest 工具
       - name: 编译 mihomo_speedtest 工具
-        run: go install github.com/0x10240/mihomo_speedtest@latest
+        run: go install github.com/0x10240/mihomo-speedtest@latest
 
       - name: 运行快速延迟预过滤
         run: |
