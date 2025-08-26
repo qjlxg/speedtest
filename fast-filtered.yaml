@@ -1,8 +1,770 @@
-proxies: []
+proxies:
+    - cipher: aes-256-cfb
+      name: 加拿大_4
+      obfs: plain
+      password: f8f7aCzcPKbsF8p3
+      port: 989
+      protocol: origin
+      region: 加拿大
+      server: 79.127.233.170
+      type: ssr
+    - cipher: chacha20-ietf-poly1305
+      name: 美国_617
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 64.74.163.130
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: 荷兰_193
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 193.29.139.168
+      type: ss
+    - name: 美国_380
+      network: ws
+      port: 80
+      region: 美国
+      server: 63.141.128.1
+      servername: c.jOin.zEdMoDeOn.oNl.
+      skip-cert-verify: false
+      tls: false
+      type: vless
+      udp: true
+      uuid: 7d22d6f7-bd15-4ae3-a41c-707427f51753
+      ws-opts:
+        headers:
+            Host: c.jOin.zEdMoDeOn.oNl.
+        path: /Join-ZEDMODEON-ZEDMODEON-ZEDMODEON-bia-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON-ZEDMODEON
+    - flow: null
+      name: 法国_90
+      network: tcp
+      port: 59332
+      server: 54.37.205.0
+      tls: false
+      type: vless
+      uuid: d2dc2527-33d5-46f3-f39c-36da72fb1a62
+    - name: 立陶宛_25
+      network: ws
+      port: 8880
+      server: 89.116.250.177
+      servername: Telegram-channel-freecodes
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /Telegram @freecodes /?ed=2560
+    - cipher: chacha20-ietf-poly1305
+      name: 德国_38
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      region: 德国
+      server: 185.177.229.245
+      type: ss
+    - alterId: 0
+      cipher: auto
+      name: None_832
+      network: ws
+      port: 8080
+      server: 1000ip.yangmie.online
+      skip-cert-verify: true
+      tfo: false
+      tls: false
+      type: vmess
+      udp: true
+      uuid: e9123cce-e4bd-46cf-8466-708b363a9807
+      ws-opts:
+        headers:
+            Host: gyde.aifjj.asia
+        path: /
+    - cipher: chacha20-ietf-poly1305
+      name: 法国_94
+      password: qXvO7zYU7KeaB0Md7DQLow
+      port: 1080
+      server: 51.195.119.47
+      type: ss
+    - flow: null
+      name: None_935
+      network: ws
+      port: 443
+      server: 172.67.178.14
+      tls: true
+      type: vless
+      uuid: 252df5e8-0428-4345-b236-a6dae7b3457d
+      ws-opts:
+        headers:
+            Host: MaIncrafT.dPdnS.OrG
+        path: '%2F'
+    - name: 美国_671
+      network: ws
+      password: d5853c53-0f0c-419d-9224-d8bfc18e1cfa
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - alterId: 0
+      cipher: auto
+      name: 法国_51
+      network: tcp
+      port: 28213
+      server: 135.125.182.74
+      type: vmess
+      uuid: 81852771-76fb-4e94-e4f1-4e37a698a49a
+    - alpn:
+        - h2
+        - http/1.1
+      client-fingerprint: chrome
+      name: None_379
+      network: ws
+      port: 443
+      server: lucky.xiaoyaogpt.com
+      servername: lucky.xiaoyaogpt.com
+      tls: true
+      type: vless
+      uuid: 0265578d-2cbe-4ae8-bf62-87171d2b8b9c
+      ws-opts:
+        headers:
+            host: lucky.xiaoyaogpt.com
+        path: /ws
+    - name: None_600
+      network: ws
+      password: f282b878-8711-45a1-8c69-5564172123c1
+      port: 443
+      server: aio.zipzap.biz.id
+      skip-cert-verify: true
+      sni: aio.zipzap.biz.id
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            host: aio.zipzap.biz.id
+        path: /aioproxybot/129.150.49.58-18650
+    - cipher: chacha20-ietf-poly1305
+      name: 奥地利_41
+      password: VdswxetVc6AhIps18rtYbm
+      port: 8506
+      server: 95.163.176.37
+      type: ss
+    - name: 美国_751
+      network: ws
+      password: 41529d96-4e99-4809-84bf-7af0d90adcb3
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - cipher: chacha20-ietf-poly1305
+      name: 荷兰_35
+      password: zI7kiNZ0UfV9cXB73a4nRD
+      port: 24206
+      region: 荷兰
+      server: 164.92.156.41
+      type: ss
+    - name: 俄罗斯联邦_29
+      network: ws
+      port: 8880
+      region: 德国
+      server: 193.9.49.188
+      servername: Telegram-channel-WangCai2
+      skip-cert-verify: false
+      tls: false
+      type: vless
+      udp: true
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            Host: ip.langmanshanxi.top
+        path: /
+    - name: 美国_179
+      password: dongtaiwang.com
+      port: 63015
+      region: 印度
+      server: 108.181.5.130
+      skip-cert-verify: true
+      sni: apple.com
+      tls: false
+      type: hysteria2
+    - cipher: chacha20-ietf-poly1305
+      name: 芬兰_92
+      password: F3nY73di5onWV3gotbpI0Q
+      port: 64519
+      server: 83.147.216.70
+      type: ss
+    - client-fingerprint: random
+      name: 日本_16
+      network: ws
+      port: 443
+      server: 13.230.34.30
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: 台湾_2430
+      password: a3434a44-af86-4662-9da1-9035563982a8
+      port: 39765
+      server: cdntwa.xiaomispeed.com
+      skip-cert-verify: true
+      sni: cdntwa.xiaomispeed.com
+      type: trojan
+      udp: true
+    - name: 德国_95
+      network: ws
+      port: 8880
+      server: 188.244.122.177
+      servername: ""
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /Telegram @freecodes /?ed=2560
+    - name: 美国_502
+      network: ws
+      port: 8880
+      server: 45.159.219.177
+      servername: Telegram-channel-freecodes
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /Telegram@freecodes/?ed=2560
+    - client-fingerprint: random
+      name: 德国_11
+      network: ws
+      port: 25690
+      server: 128.140.11.25
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: 美国_379
+      network: ws
+      port: 443
+      region: 美国
+      server: 143.198.15.103
+      servername: zula.ir
+      skip-cert-verify: true
+      tls: true
+      type: vless
+      udp: true
+      uuid: 5aebb705-2521-49b6-87f0-17dc1d53e77f
+      ws-opts:
+        headers:
+            Host: zula.ir
+        path: /ws
+    - name: 美国_711
+      network: ws
+      password: f4a944e2-1d76-4726-b79d-aa3ff83e1a0e
+      port: 8443
+      server: tj.cpddx.club
+      skip-cert-verify: true
+      sni: tj.cpddx.club
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: tj.cpddx.club
+        path: ""
+    - name: 美国_506
+      network: ws
+      port: 8880
+      server: 168.100.6.177
+      servername: ip.langmanshanxi.top
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /Telegram
+    - client-fingerprint: random
+      name: 香港_132
+      network: ws
+      port: 47790
+      server: 36.50.90.241
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - client-fingerprint: random
+      name: 德国_6
+      network: ws
+      port: 50000
+      server: 128.140.8.129
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: 美国_533
+      network: ws
+      port: 8880
+      server: 103.133.1.188
+      servername: Telegram-channel-freecodes
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /
+    - name: 美国_517
+      network: ws
+      port: 8880
+      server: 170.114.45.177
+      servername: ip.langmanshanxi.top
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /
+    - client-fingerprint: random
+      name: 德国_14
+      network: ws
+      port: 443
+      server: 64.227.114.71
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: 立陶宛_8
+      network: ws
+      port: 8880
+      region: 德国
+      server: 88.216.69.177
+      servername: ip.langmanshanxi.top
+      skip-cert-verify: false
+      tls: false
+      type: vless
+      udp: true
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            Host: ip.langmanshanxi.top
+        path: /Telegram@WangCai2/?ed=2560
+    - name: 美国_182
+      password: dongtaiwang.com
+      port: 22222
+      region: 印度尼西亚
+      server: 208.87.243.187
+      skip-cert-verify: true
+      sni: www.bing.com
+      tls: false
+      type: hysteria2
+    - client-fingerprint: random
+      name: 法国_1
+      network: ws
+      port: 8443
+      server: 95.182.98.206
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - name: 瑞士_3
+      network: ws
+      port: 8880
+      server: 185.18.250.186
+      servername: Telegram-channel-freecodes
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /
+    - client-fingerprint: random
+      name: 德国_17
+      network: ws
+      port: 8443
+      server: 130.61.107.238
+      servername: bp.singbox.ggff.net
+      skip-cert-verify: false
+      tfo: false
+      tls: true
+      type: vless
+      uuid: 222a1c34-96f5-45fd-bedd-b9ac4b477b98
+      ws-opts:
+        headers:
+            Host: bp.singbox.ggff.net
+        path: /r6PSatuYdS9gZH6L/c2pjLm8wMG8ub29v
+    - cipher: chacha20-ietf-poly1305
+      name: 巴西_11
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 185.192.124.188
+      type: ss
+    - name: 俄罗斯联邦_97
+      network: ws
+      port: 8880
+      server: 185.148.104.186
+      servername: Telegram-channel-freecodes
+      tls: false
+      type: vless
+      uuid: 583ceab3-4022-4553-9158-9bedc625ad4e
+      ws-opts:
+        headers:
+            host: ip.langmanshanxi.top
+        path: /
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1870
+      password: 8a41c00a-d98f-4af2-a448-5458ea410feb
+      port: 10121
+      server: 125.229.88.58
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_180
+      password: e8d49134-a433-49fa-983c-e54b96a64926
+      port: 10075
+      server: 36.234.120.74
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1770
+      password: c04c058b-cce5-490f-ab52-652fe6bb3a01
+      port: 10039
+      server: 1.165.107.71
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_3301
+      password: a5f3e3e3-6ab7-42d6-93eb-066bdbdfafb7
+      port: 10027
+      server: 1.165.101.192
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5172
+      password: 358e2dc4-a818-4046-a36b-38c87761b3f7
+      port: 10049
+      server: 114.46.107.33
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_100
+      password: c04c058b-cce5-490f-ab52-652fe6bb3a01
+      port: 10141
+      server: 36.232.71.250
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1021
+      password: d008fb00-a78b-4b0e-b538-f779791978af
+      port: 10120
+      server: 1.170.43.234
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_2566
+      password: 33f49e36-7dc4-4948-822a-15f619016e00
+      port: 10027
+      server: 1.165.101.192
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_3122
+      password: 886a66e3-6a81-4764-85e6-ba5a63311efa
+      port: 10027
+      server: 1.165.101.192
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1652
+      password: 53e168e2-961c-48d3-8f47-c1fceb23fdf9
+      port: 10091
+      server: 1.170.2.14
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4056
+      password: 800c1ad1-d097-4a25-ba2e-ac3ad652191a
+      port: 10133
+      server: 1.170.6.140
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4404
+      password: 9a134820-21d5-481f-86a9-e9bddfb0c5c4
+      port: 10051
+      server: 36.234.106.51
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_2355
+      password: eedd0cba-b1d8-4de9-993c-53dee917ab9c
+      port: 10085
+      server: 36.235.5.227
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4848
+      password: 800c1ad1-d097-4a25-ba2e-ac3ad652191a
+      port: 10090
+      server: 36.235.19.127
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4806
+      password: 5747fd5a-c55c-4565-a4ea-32f17fdb466e
+      port: 10039
+      server: 1.165.107.71
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4232
+      password: b1eda8d3-ba0d-4d11-8304-d23e7f8e312b
+      port: 10032
+      server: 1.165.100.2
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1985
+      password: 9b6be833-03e2-42db-afc2-c797fe8654da
+      port: 10035
+      server: 1.165.72.230
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_2098
+      password: 85511bab-190d-4419-a377-e384e8ced3c7
+      port: 10059
+      server: 1.165.114.223
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_2520
+      password: 5747fd5a-c55c-4565-a4ea-32f17fdb466e
+      port: 10023
+      server: 125.229.191.103
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5087
+      password: d557e137-2821-49ad-ac8c-f55ce51b7926
+      port: 10127
+      server: 111.253.200.241
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5673
+      password: 10e4bdfe-e214-4111-9e4a-3b44def57a10
+      port: 10115
+      server: 1.170.47.127
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_3848
+      password: 051616a3-7481-4086-b90d-5a3b786dd07f
+      port: 10039
+      server: 1.165.107.71
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_4361
+      password: 051616a3-7481-4086-b90d-5a3b786dd07f
+      port: 10053
+      server: 114.46.112.253
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5587
+      password: 3babe1aa-953b-4b53-801d-be9e5c548d7a
+      port: 10039
+      server: 1.165.107.71
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5329
+      password: 9fb037f8-c816-4302-8ef0-6aa11caf9845
+      port: 10082
+      server: 36.235.17.93
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_5419
+      password: ffe839b1-756c-40ff-bfc6-8dfb5678afc1
+      port: 10041
+      server: 1.165.103.13
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1989
+      password: b1aef923-c953-41f4-95c4-0e92c6ed9ff0
+      port: 10127
+      server: 111.253.200.241
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1250
+      password: d8c7e2fc-ba02-4665-8a92-530a0563ae66
+      port: 10118
+      server: 1.170.32.139
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_158
+      password: ffe839b1-756c-40ff-bfc6-8dfb5678afc1
+      port: 10091
+      server: 1.170.2.14
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_3769
+      password: 8a41c00a-d98f-4af2-a448-5458ea410feb
+      port: 10089
+      server: 125.228.180.215
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_3862
+      password: 33f49e36-7dc4-4948-822a-15f619016e00
+      port: 10032
+      server: 1.165.100.2
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_339
+      password: ce16ae73-a458-483b-9eec-39c981166d91
+      port: 10089
+      server: 125.228.180.215
+      type: ss
+      udp: true
+    - cipher: chacha20-ietf-poly1305
+      name: 台湾_1479
+      password: 800c1ad1-d097-4a25-ba2e-ac3ad652191a
+      port: 10035
+      server: 1.165.72.230
+      type: ss
+      udp: true
 proxy-groups:
     - interval: 300
       name: 自动选择
-      proxies: []
+      proxies:
+        - 加拿大_4
+        - 美国_617
+        - 荷兰_193
+        - 美国_380
+        - 法国_90
+        - 立陶宛_25
+        - 德国_38
+        - None_832
+        - 法国_94
+        - None_935
+        - 美国_671
+        - 法国_51
+        - None_379
+        - None_600
+        - 奥地利_41
+        - 美国_751
+        - 荷兰_35
+        - 俄罗斯联邦_29
+        - 美国_179
+        - 芬兰_92
+        - 日本_16
+        - 台湾_2430
+        - 德国_95
+        - 美国_502
+        - 德国_11
+        - 美国_379
+        - 美国_711
+        - 美国_506
+        - 香港_132
+        - 德国_6
+        - 美国_533
+        - 美国_517
+        - 德国_14
+        - 立陶宛_8
+        - 美国_182
+        - 法国_1
+        - 瑞士_3
+        - 德国_17
+        - 巴西_11
+        - 俄罗斯联邦_97
+        - 台湾_1870
+        - 台湾_180
+        - 台湾_1770
+        - 台湾_3301
+        - 台湾_5172
+        - 台湾_100
+        - 台湾_1021
+        - 台湾_2566
+        - 台湾_3122
+        - 台湾_1652
+        - 台湾_4056
+        - 台湾_4404
+        - 台湾_2355
+        - 台湾_4848
+        - 台湾_4806
+        - 台湾_4232
+        - 台湾_1985
+        - 台湾_2098
+        - 台湾_2520
+        - 台湾_5087
+        - 台湾_5673
+        - 台湾_3848
+        - 台湾_4361
+        - 台湾_5587
+        - 台湾_5329
+        - 台湾_5419
+        - 台湾_1989
+        - 台湾_1250
+        - 台湾_158
+        - 台湾_3769
+        - 台湾_3862
+        - 台湾_339
+        - 台湾_1479
       type: url-test
       url: http://www.gstatic.com/generate_204
 rules:
