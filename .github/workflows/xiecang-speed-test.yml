@@ -48,9 +48,8 @@ jobs:
       - name: 运行完整测速并生成节点文件
         run: |
           cd speedtest
-          # 在当前工作流仓库的根目录下生成 clash.yaml
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                   -output ../clash.yaml \
+                                   -output ../aggregator/clash.yaml \
                                    -min-download-speed 15.8 \
                                    -concurrent 120 \
                                    -rename
@@ -63,11 +62,8 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           
-          # 将工作流根目录的 clash.yaml 复制到 aggregator 仓库的 data 目录
-          cp ../clash.yaml data/clash.yaml
-
-          # 只提交 data/clash.yaml 到远程仓库
-          git add data/clash.yaml
+          # 只添加根目录下的 clash.yaml 文件
+          git add clash.yaml
           
           if ! git diff --cached --quiet; then
             git commit -m "chore: Update Clash nodes via speedtest"
@@ -78,9 +74,9 @@ jobs:
               
               if [ $? -ne 0 ]; then
                 echo "Rebase 失败，尝试解决冲突..."
-                # 强制使用本地的 data/clash.yaml 版本，并解决冲突
-                git checkout --theirs data/clash.yaml
-                git add data/clash.yaml
+                # 强制使用本地的 clash.yaml 版本，并解决冲突
+                git checkout --theirs clash.yaml
+                git add clash.yaml
                 git rebase --continue
               fi
               
