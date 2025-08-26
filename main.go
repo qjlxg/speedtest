@@ -35,7 +35,6 @@ var (
 	minUploadSpeed    = flag.Float64("min-upload-speed", 2, "filter upload speed less than this value(unit: MB/s)")
 	renameNodes       = flag.Bool("rename", false, "rename nodes with IP location and speed")
 	fastMode          = flag.Bool("fast", false, "fast mode, only test latency")
-	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results")
 )
 
 const (
@@ -44,31 +43,6 @@ const (
 	colorYellow = "\033[33m"
 	colorReset  = "\033[0m"
 )
-
-// saveResultsToFile saves the test results to a JSON file.
-func saveResultsToFile(results []*speedtester.Result, filename string) error {
-	data, err := json.MarshalIndent(results, "", "  ")
-	if err != nil {
-		return err
-	}
-	return os.WriteFile(filename, data, 0644)
-}
-
-// loadResultsFromFile loads the test results from a JSON file.
-func loadResultsFromFile(filename string) ([]*speedtester.Result, error) {
-	data, err := os.ReadFile(filename)
-	if err != nil {
-		if os.IsNotExist(err) {
-			return nil, nil // Return empty results if the file doesn't exist
-		}
-		return nil, err
-	}
-	var results []*speedtester.Result
-	if err := json.Unmarshal(data, &results); err != nil {
-		return nil, err
-	}
-	return results, nil
-}
 
 func main() {
 	flag.Parse()
@@ -98,94 +72,41 @@ func main() {
 		log.Fatalln("load proxies failed: %v", err)
 	}
 
-	previousResults, err := loadResultsFromFile(*resultsFile)
-	if err != nil {
-		log.Fatalln("failed to load previous results: %v", err)
-	}
-
-	previousResultsMap := make(map[string]bool)
-	for _, result := range previousResults {
-		previousResultsMap[result.ProxyName] = true
-	}
-
-	var proxiesToTest []*speedtester.Proxy
-	for _, proxy := range allProxies {
-		if _, ok := previousResultsMap[proxy.Name()]; !ok {
-			proxiesToTest = append(proxiesToTest, proxy)
-		} else {
-			log.Infoln("Skipping already tested proxy: %s", proxy.Name())
-		}
-	}
-
-	if len(proxiesToTest) == 0 {
-		fmt.Println("没有发现新节点，无需重新测试。")
-		printResults(previousResults)
-		if *outputPath != "" {
-			err = saveOptimizedConfig(previousResults)
-			if err != nil {
-				log.Fatalln("save config file failed: %v", err)
-			}
-			fmt.Printf("\nsave config file to: %s\n", *outputPath)
-		}
-		return
-	}
-
-	fmt.Printf("开始测试 %d 个新增节点...\n", len(proxiesToTest))
-	bar := progressbar.Default(int64(len(proxiesToTest)), "测试中...")
-	newResults := make([]*speedtester.Result, 0)
+	bar := progressbar.Default(int64(len(allProxies)), "测试中...")
+	results := make([]*speedtester.Result, 0)
 	var mu sync.Mutex
 
-	speedTester.TestProxies(proxiesToTest, func(result *speedtester.Result) {
+	speedTester.TestProxies(allProxies, func(result *speedtester.Result) {
 		bar.Add(1)
 		bar.Describe(result.ProxyName)
 		mu.Lock()
-		newResults = append(newResults, result)
+		results = append(results, result)
 		mu.Unlock()
 	})
 
-	finalResults := make([]*speedtester.Result, 0)
-	finalResults = append(finalResults, previousResults...)
-	for _, newResult := range newResults {
-		found := false
-		for i, oldResult := range finalResults {
-			if oldResult.ProxyName == newResult.ProxyName {
-				finalResults[i] = newResult
-				found = true
-				break
-			}
-		}
-		if !found {
-			finalResults = append(finalResults, newResult)
-		}
-	}
-
-	sort.Slice(finalResults, func(i, j int) bool {
-		return finalResults[i].DownloadSpeed > finalResults[j].DownloadSpeed
+	sort.Slice(results, func(i, j int) bool {
+		return results[i].DownloadSpeed > results[j].DownloadSpeed
 	})
 
-	printResults(finalResults)
-
-	if err := saveResultsToFile(finalResults, *resultsFile); err != nil {
-		log.Fatalln("failed to save final results: %v", err)
-	}
-	fmt.Printf("complete results saved to: %s\n", *resultsFile)
+	printResults(results)
 
 	if *outputPath != "" {
-		err = saveOptimizedConfig(finalResults)
+		err = saveOptimizedConfig(results)
 		if err != nil {
-				log.Fatalln("save config file failed: %v", err)
+			log.Fatalln("save config file failed: %v", err)
 		}
 		fmt.Printf("\nsave config file to: %s\n", *outputPath)
 	}
 }
 
-// saveOptimizedConfig generates an optimized Clash configuration based on the speed test results.
+// saveOptimizedConfig 根据测速结果生成优化的 Clash 配置文件
 func saveOptimizedConfig(results []*speedtester.Result) error {
 	proxies := make([]map[string]any, 0)
 	proxyNames := []string{}
 
 	filteredResults := make([]*speedtester.Result, 0)
 	for _, result := range results {
+		// 过滤不合格的节点
 		if *maxLatency > 0 && result.Latency > *maxLatency {
 			continue
 		}
@@ -227,6 +148,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 		proxies = append(proxies, proxyConfig)
 	}
 
+	// 创建一个自动选择的代理组
 	proxyGroups := []map[string]interface{}{
 		{
 			"name":     "自动选择",
@@ -237,6 +159,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 		},
 	}
 
+	// 创建新的 Clash YAML 配置结构
 	newConfig := map[string]interface{}{
 		"proxies":      proxies,
 		"proxy-groups": proxyGroups,
@@ -252,6 +175,7 @@ func saveOptimizedConfig(results []*speedtester.Result) error {
 
 	return os.WriteFile(*outputPath, yamlData, 0o644)
 }
+
 
 func printResults(results []*speedtester.Result) {
 	table := tablewriter.NewWriter(os.Stdout)
