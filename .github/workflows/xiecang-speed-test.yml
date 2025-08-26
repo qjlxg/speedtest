@@ -52,7 +52,6 @@ jobs:
                                    -output clash.yaml \
                                    -min-download-speed 15.8 \
                                    -concurrent 120 \
-                                   -max-latency 808ms \
                                    -rename
 
       - name: 提交并推送更改
