@@ -35,7 +35,7 @@ var (
 	minUploadSpeed    = flag.Float64("min-upload-speed", 2, "filter upload speed less than this value(unit: MB/s)")
 	renameNodes       = flag.Bool("rename", false, "rename nodes with IP location and speed")
 	fastMode          = flag.Bool("fast", false, "fast mode, only test latency")
-	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results")
+	resultsFile       = flag.String("results-file", "speed-test-results.json", "file to save and load test results") // 新增：用于指定结果文件
 )
 
 const (
@@ -117,10 +117,10 @@ func main() {
 	proxiesToTest := make([]*speedtester.Proxy, 0)
 	for _, proxy := range allProxies {
 		// 如果这个节点不在上次的成功列表中，就重新测试
-		if _, ok := previousSuccessfulResultsMap[proxy.Name]; !ok {
+		if _, ok := previousSuccessfulResultsMap[proxy.Name()]; !ok {
 			proxiesToTest = append(proxiesToTest, proxy)
 		} else {
-			log.Infoln("Skipping already successful proxy: %s", proxy.Name)
+			log.Infoln("Skipping already successful proxy: %s", proxy.Name())
 		}
 	}
 
