@@ -1,62 +1,62 @@
 name: 头痛欲裂
 
 on:
-  push:
-    paths:
-      - 'main.go'
-      - 'go.mod'
-      - 'go.sum'
-      - '.github/workflows/xiecang-speed-test.yml'
-  schedule:
-    - cron: '0 0 * * *'
-  workflow_dispatch:
+  push:
+    paths:
+      - 'main.go'
+      - 'go.mod'
+      - 'go.sum'
+      - '.github/workflows/xiecang-speed-test.yml'
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
 
 env:
-  TZ: Asia/Shanghai
+  TZ: Asia/Shanghai
 
 jobs:
-  run-full-speed-test:
-    runs-on: ubuntu-latest
+  run-full-speed-test:
+    runs-on: ubuntu-latest
 
-    steps:
-      - name: 检出测速工具仓库
-        uses: actions/checkout@v4
-        with:
-          path: speedtest
+    steps:
+      - name: 检出测速工具仓库
+        uses: actions/checkout@v4
+        with:
+          path: speedtest # 将当前仓库检出到 speedtest 目录
 
-      - name: 设置 Go 环境
-        uses: actions/setup-go@v5
-        with:
-          go-version: '1.21'
-          cache-dependency-path: speedtest/go.sum
-          cache: true
+      - name: 设置 Go 环境
+        uses: actions/setup-go@v5
+        with:
+          go-version: '1.21'
+          cache-dependency-path: speedtest/go.sum
+          cache: true
 
-      - name: 初始化并编译测速工具
-        run: |
-          cd speedtest
-          go mod init clash-speedtest || true
-          go mod tidy
-          go build -o clash-speedtest-custom
+      - name: 初始化并编译测速工具
+        run: |
+          cd speedtest
+          go mod init clash-speedtest || true
+          go mod tidy
+          go build -o clash-speedtest-custom
 
-      - name: 运行完整测速并生成节点文件
-        run: |
-          cd speedtest
-          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                   -output ../clash.yaml \
-                                   -min-download-speed 15.8 \
-                                   -concurrent 120 \
-                                   -rename
+      - name: 运行完整测速并生成节点文件
+        run: |
+          cd speedtest
+          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+                                 -output ../clash.yaml \
+                                 -min-download-speed 15.8 \
+                                 -concurrent 120 \
+                                 -rename
 
-      - name: 提交更改到本地仓库
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          
-          git add clash.yaml
-          
-          if ! git diff --cached --quiet; then
-            git commit -m "chore: Update Clash nodes locally via speedtest"
-            echo "已成功将文件提交到本地仓库。"
-          else
-            echo "没有节点更改，无需提交。"
-          fi
+      - name: 提交更改到本地仓库
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          git add clash.yaml
+          
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: Update Clash nodes locally via speedtest"
+            echo "已成功将文件提交到本地仓库。"
+          else
+            echo "没有节点更改，无需提交。"
+          fi
