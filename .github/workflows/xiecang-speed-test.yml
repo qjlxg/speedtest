@@ -19,38 +19,36 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 检出测速工具仓库
+      - name: 检出仓库
         uses: actions/checkout@v4
         with:
-          path: speedtest # 将当前仓库检出到 speedtest 目录
+          path: . # 将当前仓库检出到根目录
 
       - name: 设置 Go 环境
         uses: actions/setup-go@v5
         with:
           go-version: '1.21'
-          cache-dependency-path: speedtest/go.sum
+          cache-dependency-path: go.sum
           cache: true
 
       - name: 初始化并编译测速工具
         run: |
-          cd speedtest
           go mod init clash-speedtest || true
           go mod tidy
           go build -o clash-speedtest-custom
 
       - name: 运行完整测速并生成节点文件
         run: |
-          cd speedtest
           ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                 -output ../clash.yaml \
+                                 -output clash.yaml \
                                  -min-download-speed 15.8 \
                                  -concurrent 120 \
                                  -rename
 
       - name: 提交更改到本地仓库
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git config user.name 'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
           
           git add clash.yaml
           
