@@ -48,7 +48,7 @@ jobs:
       - name: 运行完整测速并生成节点文件
         run: |
           cd speedtest
-          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/vt.yaml" \
                                    -output clash.yaml \
                                    -min-download-speed 15.8 \
                                    -concurrent 120 \
