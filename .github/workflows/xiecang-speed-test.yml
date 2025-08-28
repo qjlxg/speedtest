@@ -1,60 +1,74 @@
-name: 头痛欲裂
+
+name: 下载测速
 
 on:
   push:
     paths:
-      - 'main.go'
-      - 'go.mod'
-      - 'go.sum'
-      - '.github/workflows/xiecang-speed-test.yml'
+    - '.github/workflows/xiecang-speed-test.yml'
+  
+
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 */8 * * *'
+  # 允许手动触发
   workflow_dispatch:
 
 env:
+ 
   TZ: Asia/Shanghai
 
 jobs:
-  run-full-speed-test:
+  run-speedtest:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: 检出仓库
+      - name: 检出仓库代码
         uses: actions/checkout@v4
-        with:
-          path: . # 将当前仓库检出到根目录
-
+      
       - name: 设置 Go 环境
-        uses: actions/setup-go@v5
+        uses: actions/setup-go@v4
         with:
           go-version: '1.21'
-          cache-dependency-path: go.sum
-          cache: true
-
-      - name: 初始化并编译测速工具
+      
+      - name: 安装 clash-speedtest 工具
         run: |
-          go mod init clash-speedtest || true
-          go mod tidy
-          go build -o clash-speedtest-custom
-
-      - name: 运行完整测速并生成节点文件
+           go mod init clash-speedtest || true
+           go mod tidy
+           go build -o clash-speedtest-custom
+      
+      - name: 备份上次运行结果
         run: |
-          ./clash-speedtest-custom -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
-                                 -output clash.yaml \
-                                 -min-download-speed 15.8 \
-                                 -concurrent 120 \
-                                 -rename
-
-      - name: 提交更改到本地仓库
+          # 获取当前日期时间并格式化
+          TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+          # 直接备份文件，假设 clash.yaml 和 sc 目录都存在
+          cp clash.yaml sc/clash_$TIMESTAMP.yaml
+          echo "已成功备份 clash.yaml 到 sc/clash_$TIMESTAMP.yaml"
+      
+      - name: 运行测速并筛选节点
         run: |
-          git config user.name 'github-actions[bot]'
-          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          clash-speedtest -c "https://raw.githubusercontent.com/qjlxg/VT/refs/heads/main/clash_config.yaml" \
+                          -output clash.yaml \
+                          -max-latency 808ms \
+                          -min-download-speed 15.8 \
+                          -concurrent 120 \
+                          -rename \
+                          
+      
+      - name: 提交并推送更改
+        run: |
+          git config --global user.name 'github-actions'
+          git config --global user.email 'github-actions@github.com'
           
-          git add clash.yaml
+          # 添加新生成的 clash.yaml 文件和所有备份文件
+          git add clash.yaml sc/
           
           if ! git diff --cached --quiet; then
-            git commit -m "chore: Update Clash nodes locally via speedtest"
-            echo "已成功将文件提交到本地仓库。"
+            git commit -m "chore: Update and filter Clash nodes via speedtest"
+            
+            for i in {1..3}; do
+              git pull --rebase
+              git push && break
+              sleep 5
+            done
           else
             echo "没有节点更改，无需提交。"
           fi
