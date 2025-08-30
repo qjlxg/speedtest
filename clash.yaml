@@ -1,8 +1,27 @@
-proxies: []
+proxies:
+    - name: "\U0001F3F3️ IR | ⬇️ 18.52 MB/s"
+      port: 443
+      server: ger1.kacivil.ir
+      type: vless
+      uuid: 4ef3e4ad-49a0-45e8-b9f7-3de98a3aca67
+    - _index: 5
+      alterId: "0"
+      cipher: auto
+      name: "\U0001F1EF\U0001F1F5 JP | ⬇️ 16.36 MB/s"
+      network: ws
+      port: "443"
+      server: jp.infts.fyi
+      tls: true
+      type: vless
+      uuid: a81f3f43-3eeb-4958-971a-a5bade9a4b88
+      ws-opts:
+        path: /123test
 proxy-groups:
     - interval: 300
       name: 自动选择
-      proxies: []
+      proxies:
+        - "\U0001F3F3️ IR | ⬇️ 18.52 MB/s"
+        - "\U0001F1EF\U0001F1F5 JP | ⬇️ 16.36 MB/s"
       type: url-test
       url: http://www.gstatic.com/generate_204
 rules:
