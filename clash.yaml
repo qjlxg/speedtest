@@ -1,11 +1,6 @@
 proxies:
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 88.53 MB/s"
-      port: 2321
-      server: 172.234.192.79
-      type: vless
-      uuid: 4c266060-28aa-4fd4-8286-86127e16b260
     - cipher: aes-256-cfb
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 66.20 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 84.45 MB/s"
       obfs: plain
       password: f8f7aCzcPKbsF8p3
       port: 989
@@ -13,50 +8,98 @@ proxies:
       region: 加拿大
       server: 79.127.233.170
       type: ssr
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 65.42 MB/s"
-      password: xxoo
+    - name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 72.59 MB/s"
+      network: ws
       port: 443
-      server: us.blazeppn.info
-      type: trojan
+      server: registry.cyou
+      servername: 0unrad.a6ycpr7hed7.0yli.tbqrrk.6hb8.ekq.ogob6qr.j4dktqgdoc4.j4pj1i.2f8icdps9.qw07.uwt.ftr4tf.85nswz.5n0kb5kois.euqzb3w5362v.np85.s3sd1a.fgfgioi.dw9ani.rxug8sgrimhma9yalzyzlqj7150o8gj2hoj49cmlij91gdyjq9uhw41d.nudt.edu.kg
+      tls: true
+      type: vless
+      uuid: d342d11e-d424-4583-b36e-524ab1f0afa4
+      ws-opts:
+        headers:
+            host: 0unrad.a6ycpr7hed7.0yli.tbqrrk.6hb8.ekq.ogob6qr.j4dktqgdoc4.j4pj1i.2f8icdps9.qw07.uwt.ftr4tf.85nswz.5n0kb5kois.euqzb3w5362v.np85.s3sd1a.fgfgioi.dw9ani.rxug8sgrimhma9yalzyzlqj7150o8gj2hoj49cmlij91gdyjq9uhw41d.nudt.edu.kg
+        path: /snippets?ip=proxyip:port(443)
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 54.23 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 104.192.226.106
+      type: ss
+    - alterId: 64
+      cipher: auto
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 53.96 MB/s"
+      port: 30002
+      region: 美国
+      server: 38.12.83.217
+      skip-cert-verify: true
+      tls: false
+      type: vmess
+      uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
     - cipher: aes-128-gcm
-      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 62.73 MB/s"
+      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 53.33 MB/s"
       password: shadowsocks
       port: 443
       server: 212.102.53.194
       type: ss
     - cipher: aes-128-gcm
-      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 62.43 MB/s"
+      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 53.07 MB/s"
       password: shadowsocks
       port: 443
       server: 212.102.53.198
       type: ss
-    - cipher: aes-128-gcm
-      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 61.61 MB/s"
-      password: shadowsocks
-      port: 443
-      server: 212.102.53.197
-      type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 55.70 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 50.91 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 64.74.163.130
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.90 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 47.01 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
       port: 8080
-      server: 151.242.251.153
+      server: 193.29.139.235
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 51.16 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 43.62 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 64.74.163.218
       type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 42.21 MB/s"
+      password: QCXDxuDlTTMD7jtgHUjIoj
+      port: 8080
+      server: 151.242.251.153
+      type: ss
+    - cipher: rc4-md5
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 42.09 MB/s"
+      obfs: plain
+      password: 14fFPrbezE3HDZzsMOr6
+      port: 8080
+      protocol: origin
+      region: 美国
+      server: 107.151.182.253
+      type: ssr
+    - alpn:
+        - h3
+        - h2
+        - http/1.1
+      alterId: 0
+      cipher: auto
+      client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 41.88 MB/s"
+      network: tcp
+      port: 17891
+      server: vps.my-youth.asia
+      servername: vps.my-youth.asia
+      tls: true
+      type: vmess
+      udp: true
+      uuid: 8f2d400c-0879-4076-9b87-2302f00a135b
     - client-fingerprint: chrome
       flow: xtls-rprx-vision
-      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 50.97 MB/s"
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 41.78 MB/s"
       network: tcp
       port: 25801
       reality-opts:
@@ -67,256 +110,81 @@ proxies:
       type: vless
       udp: true
       uuid: 0e03f24b-92f2-4e79-a877-c22d7af33792
-    - cipher: rc4-md5
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 50.14 MB/s"
-      obfs: plain
-      password: 14fFPrbezE3HDZzsMOr6
-      port: 8080
-      protocol: origin
-      region: 美国
-      server: 107.151.182.253
-      type: ssr
-    - alterId: 64
+    - alterId: 0
       cipher: auto
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 49.59 MB/s"
-      port: 30002
-      region: 美国
-      server: 38.12.83.217
-      skip-cert-verify: true
-      tls: false
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 40.60 MB/s"
+      port: 41100
+      server: 15.204.234.200
       type: vmess
-      uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+      uuid: c7f169a3-2e9a-4894-ba53-7b2fa6fd08b4
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 48.08 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 104.192.226.106
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 47.90 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 193.29.139.235
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.01 MB/s"
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 34.76 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
       server: 151.242.251.147
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 44.82 MB/s"
+      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 34.31 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
       server: 45.158.171.146
       type: ss
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.67 MB/s"
+      password: 20050105zhu
+      port: 51541
+      server: 204.44.110.129
+      skip-cert-verify: true
+      sni: www.bing.com
+      type: hysteria2
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 43.01 MB/s"
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 32.26 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
       server: 151.242.251.131
       type: ss
-    - alpn:
-        - h3
-        - h2
-        - http/1.1
-      alterId: 0
-      cipher: auto
-      client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 41.11 MB/s"
+    - client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.10 MB/s"
+      network: ws
+      port: 443
+      server: a9_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - alterId: 0
+      cipher: none
+      fingerprint: ""
+      name: "\U0001F1E6\U0001F1FA AU | ⬇️ 31.71 MB/s"
       network: tcp
-      port: 17891
-      server: vps.my-youth.asia
-      servername: vps.my-youth.asia
+      port: 443
+      region: 印度
+      server: 103.57.249.204
+      sni: ""
+      type: vmess
+      uuid: f13143a7-542d-49ec-9428-098142b6977c
+    - alterId: 0
+      cipher: auto
+      h2-opts: {}
+      http-opts: {}
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.63 MB/s"
+      network: ws
+      port: 443
+      server: b62a948c-faa2-4e8a-bf8a-3ff3121c875a.asoul-ava.top
+      skip-cert-verify: true
       tls: true
       type: vmess
-      udp: true
-      uuid: 8f2d400c-0879-4076-9b87-2302f00a135b
-    - client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 36.57 MB/s"
-      network: ws
-      port: 443
-      server: 162.251.82.250
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      uuid: 5f726fe3-d82e-4da5-a711-8af0cbb2b682
       ws-opts:
         headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
+            Host: b62a948c-faa2-4e8a-bf8a-3ff3121c875a.asoul-ava.top
+        path: /azumase.ren
     - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 36.49 MB/s"
-      network: ws
-      port: 443
-      server: 23.227.39.174
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 36.36 MB/s"
-      network: ws
-      port: 443
-      server: a8_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 35.99 MB/s"
-      network: ws
-      port: 443
-      server: 104.27.36.137
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 35.44 MB/s"
-      network: ws
-      port: 443
-      server: 172.67.114.195
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.69 MB/s"
-      network: ws
-      port: 443
-      server: a6_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      flow: xtls-rprx-vision
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 34.36 MB/s"
-      port: 5847
-      reality-opts:
-        public-key: NpqF483u4nXH0cztdyX7VbkpbDEW0sO07cGya0WvCHM
-      server: 84.33.244.7
-      servername: www.microsoft.com
-      skip-cert-verify: false
-      tfo: false
-      tls: true
-      type: vless
-      udp: true
-      uuid: 67f0fefa-a922-428c-ac02-37e1d5aaed72
-      xudp: true
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.22 MB/s"
-      network: ws
-      port: 443
-      server: a2_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.21 MB/s"
-      network: ws
-      port: 443
-      server: www.visa.co.jp
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.11 MB/s"
-      network: ws
-      port: 443
-      server: russia.com
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.05 MB/s"
-      network: ws
-      port: 443
-      server: a3_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.01 MB/s"
-      network: ws
-      port: 443
-      server: a5_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.92 MB/s"
-      network: ws
-      port: 443
-      server: www.hugedomains.com
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.67 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.05 MB/s"
       network: ws
       port: 443
       server: 104.24.87.184
@@ -330,579 +198,7 @@ proxies:
             host: c379b284.vs-494.pages.dev
         path: /?ed=2560
     - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.63 MB/s"
-      network: ws
-      port: 443
-      server: 23.227.39.171
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E7\U0001F1FF BZ | ⬇️ 33.42 MB/s"
-      network: ws
-      port: 443
-      server: 45.131.7.25
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.28 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.18.227
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.17 MB/s"
-      network: ws
-      port: 443
-      server: 104.25.46.3
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 33.07 MB/s"
-      password: 20050105zhu
-      port: 51541
-      server: 204.44.110.129
-      skip-cert-verify: true
-      sni: www.bing.com
-      type: hysteria2
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.83 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.18
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.83 MB/s"
-      network: ws
-      port: 443
-      server: 162.159.249.49
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.72 MB/s"
-      network: ws
-      port: 443
-      server: www.gov.se
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 32.66 MB/s"
-      password: 4a2rfixophdjffa8KVA4Aa
-      port: 8080
-      server: 151.242.251.144
-      type: ss
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.65 MB/s"
-      network: ws
-      port: 443
-      server: 172.67.130.135
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 32.42 MB/s"
-      password: c40641c1f89e7acb
-      port: 57456
-      region: 英国
-      server: 46.226.163.225
-      type: ss
-    - client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.25 MB/s"
-      network: ws
-      port: 443
-      server: a9_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 32.14 MB/s"
-      network: ws
-      port: 443
-      server: 162.159.249.175
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.12 MB/s"
-      network: ws
-      port: 443
-      server: ip.sb
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.12 MB/s"
-      network: ws
-      port: 443
-      server: 23.227.39.178
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.11 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.16
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.08 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.6
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.85 MB/s"
-      network: ws
-      port: 443
-      server: 104.18.100.21
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.49 MB/s"
-      network: ws
-      port: 443
-      server: 104.18.54.180
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.35 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.17
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.33 MB/s"
-      network: ws
-      port: 443
-      server: 104.18.164.69
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.31 MB/s"
-      network: ws
-      port: 443
-      server: 104.25.158.197
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.22 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.124
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 31.21 MB/s"
-      network: ws
-      port: 443
-      server: 162.159.251.165
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.17 MB/s"
-      network: ws
-      port: 443
-      server: 198.41.198.176
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - alterId: 0
-      cipher: auto
-      name: "\U0001F1F7\U0001F1FA RU | ⬇️ 31.16 MB/s"
-      network: tcp
-      port: 43953
-      region: 波兰
-      server: myfreecloud.ru
-      type: vmess
-      uuid: 712c13ab-550a-4812-8d3b-7eb11ac7eeaf
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.00 MB/s"
-      network: ws
-      port: 443
-      server: 172.67.216.216
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.95 MB/s"
-      network: ws
-      port: 443
-      server: www.visa.com.hk
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.89 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.15
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.71 MB/s"
-      network: ws
-      port: 443
-      server: 172.67.186.58
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - alterId: 0
-      cipher: none
-      fingerprint: ""
-      name: "\U0001F1E6\U0001F1FA AU | ⬇️ 30.65 MB/s"
-      network: tcp
-      port: 443
-      region: 印度
-      server: 103.57.249.204
-      sni: ""
-      type: vmess
-      uuid: f13143a7-542d-49ec-9428-098142b6977c
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.35 MB/s"
-      network: ws
-      port: 443
-      server: www.glassdoor.com
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.96 MB/s"
-      network: ws
-      port: 443
-      server: www.baipiao.eu.org
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.94 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.21.134
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.76 MB/s"
-      network: ws
-      port: 443
-      server: www.shopify.com
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.74 MB/s"
-      network: ws
-      port: 443
-      server: 104.17.28.121
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.54 MB/s"
-      network: ws
-      port: 443
-      server: www.visa.com.sg
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.50 MB/s"
-      network: ws
-      port: 443
-      server: a1_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.45 MB/s"
-      network: ws
-      port: 443
-      server: www.visa.com
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.14 MB/s"
-      network: ws
-      port: 443
-      server: icook.hk
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.12 MB/s"
-      network: ws
-      port: 443
-      server: a4_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.99 MB/s"
-      network: ws
-      port: 443
-      server: a7_alist.yzqiang.site
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.90 MB/s"
-      network: ws
-      port: 443
-      server: 104.18.76.29
-      sni: c379b284.vs-494.pages.dev
-      tls: true
-      type: vless
-      udp: false
-      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
-      ws-opts:
-        headers:
-            host: c379b284.vs-494.pages.dev
-        path: /?ed=2560
-    - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.81 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.94 MB/s"
       network: ws
       port: 443
       server: 172.67.240.192
@@ -916,10 +212,10 @@ proxies:
             host: c379b284.vs-494.pages.dev
         path: /?ed=2560
     - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.76 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.72 MB/s"
       network: ws
       port: 443
-      server: 172.67.201.134
+      server: 104.17.21.6
       sni: c379b284.vs-494.pages.dev
       tls: true
       type: vless
@@ -930,10 +226,10 @@ proxies:
             host: c379b284.vs-494.pages.dev
         path: /?ed=2560
     - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.61 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.65 MB/s"
       network: ws
       port: 443
-      server: 172.64.146.97
+      server: www.visa.co.jp
       sni: c379b284.vs-494.pages.dev
       tls: true
       type: vless
@@ -944,7 +240,222 @@ proxies:
             host: c379b284.vs-494.pages.dev
         path: /?ed=2560
     - client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.03 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.44 MB/s"
+      network: ws
+      port: 443
+      server: www.visa.com
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.37 MB/s"
+      network: ws
+      port: 443
+      server: 23.227.39.171
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 30.37 MB/s"
+      network: ws
+      port: 443
+      server: vless.zyttbywy.xyz
+      servername: vless.zyttbywy.xyz
+      skip-cert-verify: false
+      tls: true
+      type: vless
+      uuid: b340d332-7ee9-450e-80e7-7aaf9ffbb302
+      ws-opts:
+        path: /vws
+    - alterId: 0
+      cipher: auto
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.23 MB/s"
+      network: ws
+      port: 443
+      server: klo.986986.shop
+      servername: klo.986986.shop
+      skip-cert-verify: true
+      tls: true
+      type: vmess
+      uuid: b75c9731-408d-4aa6-8ae9-3857205113a1
+      ws-opts:
+        headers:
+            host: klo.986986.shop
+        path: /nvjx6j7kbDQIQMZvbeVA9
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.97 MB/s"
+      network: ws
+      port: 443
+      server: a8_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.89 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.134
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.61 MB/s"
+      network: ws
+      port: 443
+      server: a7_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.56 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.114.195
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 29.29 MB/s"
+      network: ws
+      port: 443
+      server: 162.251.82.250
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.25 MB/s"
+      network: ws
+      port: 443
+      server: www.visa.com.sg
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.03 MB/s"
+      network: ws
+      port: 443
+      server: 23.227.39.178
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.03 MB/s"
+      network: ws
+      port: 443
+      server: www.visa.com.hk
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.91 MB/s"
+      network: ws
+      port: 443
+      server: www.hugedomains.com
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.82 MB/s"
+      network: ws
+      port: 443
+      server: www.shopify.com
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 28.73 MB/s"
+      password: c40641c1f89e7acb
+      port: 57456
+      region: 英国
+      server: 46.226.163.225
+      type: ss
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.67 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.16
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.50 MB/s"
       network: ws
       port: 443
       server: 23.227.38.244
@@ -958,57 +469,252 @@ proxies:
             host: c379b284.vs-494.pages.dev
         path: /?ed=2560
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 27.94 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.87.175.35
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 27.48 MB/s"
-      password: a58fa62b4944ddbf
-      port: 57456
-      region: 法国
-      server: 81.19.137.222
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 27.04 MB/s"
-      password: 1RWwXhwfAB5gAEozU4G2Pg
-      port: 8080
-      server: 45.87.175.178
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 26.74 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.158.171.60
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 26.21 MB/s"
-      password: oXGp1+ihlfKg826H
-      port: 1866
-      region: 德国
-      server: 185.177.229.245
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F0\U0001F1F7 KR | ⬇️ 25.80 MB/s"
+      name: "\U0001F1F0\U0001F1F7 KR | ⬇️ 28.48 MB/s"
       password: b25727df-15ea-453c-a006-13fe98fee1d2
       port: 30936
       server: 141.164.63.32
       type: ss
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 25.11 MB/s"
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.06 MB/s"
       network: ws
       port: 443
-      server: vless.zyttbywy.xyz
-      servername: vless.zyttbywy.xyz
-      skip-cert-verify: false
+      server: 104.25.158.197
+      sni: c379b284.vs-494.pages.dev
       tls: true
       type: vless
-      uuid: b340d332-7ee9-450e-80e7-7aaf9ffbb302
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
       ws-opts:
-        path: /vws
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 24.50 MB/s"
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.87 MB/s"
       network: ws
-      password: 93f099bd-5d84-46fa-95d1-7223b869a022
+      port: 443
+      server: 172.64.146.97
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.85 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.124
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.71 MB/s"
+      network: ws
+      port: 443
+      server: russia.com
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.67 MB/s"
+      network: ws
+      port: 443
+      server: 198.41.198.176
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.63 MB/s"
+      network: ws
+      port: 443
+      server: 104.18.76.29
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.57 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.130.135
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 27.38 MB/s"
+      network: ws
+      port: 443
+      server: 162.159.251.165
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 27.21 MB/s"
+      network: ws
+      port: 443
+      server: 162.159.249.175
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.12 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.201.134
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.04 MB/s"
+      network: ws
+      port: 443
+      server: 104.18.100.21
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.82 MB/s"
+      network: ws
+      port: 443
+      server: www.gov.se
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.81 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.186.58
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E7\U0001F1FF BZ | ⬇️ 26.79 MB/s"
+      network: ws
+      port: 443
+      server: 45.131.7.25
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.46 MB/s"
+      network: ws
+      port: 443
+      server: a2_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.34 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.18.227
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.31 MB/s"
+      network: ws
+      port: 443
+      server: 104.25.46.3
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 26.16 MB/s"
+      network: ws
+      password: 47d3bb20-5eea-418b-ab8f-08386695b43b
       port: 8443
       server: tj.cpddx.club
       skip-cert-verify: true
@@ -1019,24 +725,166 @@ proxies:
         headers:
             Host: tj.cpddx.club
         path: ""
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1ED CH | ⬇️ 23.86 MB/s"
-      password: oXGp1+ihlfKg826H
-      port: 1866
-      region: 美国
-      server: 204.136.10.115
-      type: ss
     - cipher: 2022-blake3-aes-256-gcm
-      name: "\U0001F1EF\U0001F1F5 JP | ⬇️ 23.17 MB/s"
+      name: "\U0001F1EF\U0001F1F5 JP | ⬇️ 26.03 MB/s"
       password: lTPCzFYFFcQ1lLgXbjcux3kL32U0D2hO/beYOAEMA3E=:o5jDKlUNFQrR+EFsPvC29xcc/fL5ss86ewzerLnmhes=
       port: 8443
       server: 31.58.223.117
       type: ss
       udp: false
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.94 MB/s"
+      network: ws
+      port: 443
+      server: a5_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.68 MB/s"
+      network: ws
+      port: 443
+      server: a4_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.59 MB/s"
+      network: ws
+      port: 443
+      server: icook.hk
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.52 MB/s"
+      network: ws
+      port: 443
+      server: a1_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.44 MB/s"
+      network: ws
+      port: 443
+      server: 104.18.164.69
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.18 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.28.121
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.09 MB/s"
+      network: ws
+      port: 443
+      server: www.glassdoor.com
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.07 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.17
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.79 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.18
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.69 MB/s"
+      network: ws
+      port: 443
+      server: 172.67.216.216
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - alterId: 0
+      cipher: auto
+      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 24.69 MB/s"
+      port: 19901
+      server: fg.dashuai.cyou
+      tls: false
+      type: vmess
+      udp: true
+      uuid: 7a8a1055-56d8-4a66-87e1-a374496f8073
     - alterId: 0
       cipher: auto
       fingerprint: ""
-      name: "\U0001F1E6\U0001F1EA AE | ⬇️ 22.96 MB/s"
+      name: "\U0001F1E6\U0001F1EA AE | ⬇️ 24.35 MB/s"
       network: tcp
       port: 443
       region: 英国
@@ -1044,20 +892,106 @@ proxies:
       sni: ""
       type: vmess
       uuid: 44537595-9ccc-4b83-8936-5f9ad3229019
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F4 NO | ⬇️ 22.49 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 185.213.23.226
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E6\U0001F1F9 AT | ⬇️ 22.35 MB/s"
-      password: VdswxetVc6AhIps18rtYbm
-      port: 8506
-      server: 95.163.176.37
-      type: ss
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.17 MB/s"
+      network: ws
+      port: 443
+      server: 23.227.39.174
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.14 MB/s"
+      network: ws
+      port: 443
+      server: 104.27.36.137
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.98 MB/s"
+      network: ws
+      port: 443
+      server: www.baipiao.eu.org
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.97 MB/s"
+      network: ws
+      port: 443
+      server: 104.17.21.15
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: None_1084
+      network: ws
+      port: 443
+      server: a3_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 23.76 MB/s"
+      network: ws
+      port: 443
+      server: 162.159.249.49
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.67 MB/s"
+      network: ws
+      port: 443
+      server: 104.18.54.180
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
     - cipher: auto
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 21.07 MB/s"
+      name: None_9
       network: ws
       port: 80
       server: 162.159.134.61
@@ -1066,104 +1000,99 @@ proxies:
       tls: false
       type: vless
       udp: true
-      uuid: 0772da20-ea49-446d-816d-e42237c54848
+      uuid: 7d265652-cacf-4b9a-aee6-f20ba4dbfe04
       ws-opts:
         headers:
             Host: myvps.nilphreakz.me
         path: /vless
-    - name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 20.88 MB/s"
+    - client-fingerprint: chrome
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.17 MB/s"
       network: ws
-      port: 2096
-      server: zula.ir
-      servername: frAgteSt.JaHANGiRKh.eU.orG
+      port: 443
+      server: a6_alist.yzqiang.site
+      sni: c379b284.vs-494.pages.dev
       tls: true
       type: vless
-      uuid: 97909ffd-6da0-4893-9d63-00e72ad55256
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
       ws-opts:
         headers:
-            host: frAgteSt.JaHANGiRKh.eU.orG
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - cipher: chacha20-ietf-poly1305
+      name: 德国_606
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      region: 德国
+      server: 185.177.229.245
+      type: ss
+    - name: None_841
+      network: ws
+      port: 80
+      server: tgju.org
+      servername: SeRvER17.VtNEt.InFO
+      tls: false
+      type: vless
+      uuid: 2b277eea-66b2-4f3a-b934-46225c1f5e6f
+      ws-opts:
+        headers:
+            host: SeRvER17.VtNEt.InFO
         path: /
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 22.35 MB/s"
+      network: ws
+      port: 443
+      server: 198.62.62.2
+      servername: smn2.gerlemondns.info
+      tls: true
+      type: vless
+      uuid: 598b4251-fd03-48fe-b12d-630ac3adf2e5
+      ws-opts:
+        headers:
+            host: smn2.gerlemondns.info
+        path: /hjgfdws
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 20.68 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.87.175.22
+      name: 瑞士_13
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      region: 美国
+      server: 204.136.10.115
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 19.43 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 21.36 MB/s"
+      password: cvII85TrW6n0OGyfpHVS1u
       port: 8080
-      server: 193.29.139.168
+      server: 45.87.175.188
       type: ss
+    - client-fingerprint: chrome
+      name: None_1062
+      network: ws
+      port: 443
+      server: ip.sb
+      sni: c379b284.vs-494.pages.dev
+      tls: true
+      type: vless
+      udp: false
+      uuid: b940be1b-3998-45d2-bf7b-06e7b6c4987a
+      ws-opts:
+        headers:
+            host: c379b284.vs-494.pages.dev
+        path: /?ed=2560
+    - alterId: 0
+      cipher: auto
+      name: "\U0001F1F2\U0001F1FE MY | ⬇️ 21.06 MB/s"
+      port: 37313
+      server: 45.128.54.84
+      type: vmess
+      uuid: 72feb833-4196-4a70-a3f5-aeb011f7d534
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 18.08 MB/s"
+      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 20.58 MB/s"
       password: mSQiuT5jR17nyWgcXOPrTW
       port: 8594
       server: 77.105.166.12
       type: ss
-    - alpn:
-        - h3
-        - h2
-        - http/1.1
-      client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 17.49 MB/s"
-      network: ws
-      port: 8443
-      server: 104.26.4.135
-      servername: sg.20051212.xyz
-      tls: true
-      type: vless
-      udp: true
-      uuid: 680b0ac9-9025-477e-b40e-5339b852535c
-      ws-opts:
-        headers:
-            Host: sg.20051212.xyz
-        path: /680b0ac9
-    - alpn:
-        - h3
-        - h2
-        - http/1.1
-      client-fingerprint: chrome
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 17.38 MB/s"
-      network: ws
-      port: 8443
-      server: 172.67.69.69
-      servername: sg.20051212.xyz
-      tls: true
-      type: vless
-      udp: true
-      uuid: 680b0ac9-9025-477e-b40e-5339b852535c
-      ws-opts:
-        headers:
-            Host: sg.20051212.xyz
-        path: /680b0ac9
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 17.36 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.158.171.66
-      type: ss
-    - cipher: aes-256-gcm
-      name: "\U0001F1E6\U0001F1F9 AT | ⬇️ 17.16 MB/s"
-      password: TG:@Enkelte_notif&&TG:@Notif_Chat
-      port: 34045
-      server: 152.53.2.128
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 17.15 MB/s"
-      password: fe166c5b3465540f
-      port: 57456
-      server: desrv.ssvpnapp.win
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 17.11 MB/s"
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 45.87.175.190
-      type: ss
     - alterId: 0
       cipher: auto
-      name: "\U0001F1F8\U0001F1EC SG | ⬇️ 15.89 MB/s"
+      name: "\U0001F1F8\U0001F1EC SG | ⬇️ 20.48 MB/s"
       network: ws
       port: 443
       server: free1.regar-store.xyz
@@ -1177,114 +1106,239 @@ proxies:
         headers:
             Host: free1.regar-store.xyz
         path: /vmess-tls
+    - cipher: chacha20-ietf-poly1305
+      name: 阿联酋_36
+      password: 4a2rfixophdjffa8KVA4Aa
+      port: 8080
+      server: 151.242.251.144
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: 法国_172
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 45.158.171.60
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: 荷兰_247
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 103.104.247.49
+      type: ss
+    - name: 新加坡_1
+      network: ws
+      password: 1c561445-60c8-45c3-88c2-943a964a31b1
+      port: 443
+      server: free1.regar-store.xyz
+      skip-cert-verify: true
+      sni: bug.com
+      type: trojan
+      udp: true
+      ws-opts:
+        headers:
+            Host: free1.regar-store.xyz
+        path: /trojan-tls
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 19.37 MB/s"
+      password: qXvO7zYU7KeaB0Md7DQLow
+      port: 1080
+      server: 51.195.119.47
+      type: ss
+    - cipher: auto
+      name: 新加坡_4
+      network: ws
+      port: 443
+      server: free1.regar-store.xyz
+      servername: bug.com
+      skip-cert-verify: true
+      tls: true
+      type: vless
+      udp: true
+      uuid: 6029d598-bb13-47fc-af8d-704607600186
+      ws-opts:
+        headers:
+            Host: free1.regar-store.xyz
+        path: /vless-tls
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 19.29 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 45.87.175.69
+      type: ss
+    - alpn:
+        - h3
+        - h2
+        - http/1.1
+      client-fingerprint: chrome
+      name: None_144
+      network: ws
+      port: 8443
+      server: 104.26.4.135
+      servername: sg.20051212.xyz
+      tls: true
+      type: vless
+      udp: true
+      uuid: 680b0ac9-9025-477e-b40e-5339b852535c
+      ws-opts:
+        headers:
+            Host: sg.20051212.xyz
+        path: /680b0ac9
+    - cipher: chacha20-ietf-poly1305
+      name: 新加坡_215
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      server: 64.176.85.73
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F1\U0001F1FB LV | ⬇️ 18.51 MB/s"
+      password: 360e21d21977dc11
+      port: 57456
+      server: 216.173.70.187
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E6\U0001F1F9 AT | ⬇️ 18.22 MB/s"
+      password: VdswxetVc6AhIps18rtYbm
+      port: 8506
+      server: 95.163.176.37
+      type: ss
+    - alpn:
+        - h3
+        - h2
+        - http/1.1
+      client-fingerprint: chrome
+      name: None_146
+      network: ws
+      port: 8443
+      server: 172.67.69.69
+      servername: sg.20051212.xyz
+      tls: true
+      type: vless
+      udp: true
+      uuid: 680b0ac9-9025-477e-b40e-5339b852535c
+      ws-opts:
+        headers:
+            Host: sg.20051212.xyz
+        path: /680b0ac9
+    - cipher: aes-256-gcm
+      name: 奥地利_10
+      password: TG:@Enkelte_notif&&TG:@Notif_Chat
+      port: 34045
+      server: 152.53.2.128
+      type: ss
+    - name: 美国_325
+      password: xxoo
+      port: 443
+      server: us.blazeppn.info
+      type: trojan
 proxy-groups:
     - interval: 300
       name: 自动选择
       proxies:
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 88.53 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 66.20 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 65.42 MB/s"
-        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 62.73 MB/s"
-        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 62.43 MB/s"
-        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 61.61 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 55.70 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.90 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 51.16 MB/s"
-        - "\U0001F1E9\U0001F1EA DE | ⬇️ 50.97 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 50.14 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 49.59 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 48.08 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 47.90 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.01 MB/s"
-        - "\U0001F1FB\U0001F1EA VE | ⬇️ 44.82 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 43.01 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 41.11 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 36.57 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 36.49 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 36.36 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 35.99 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 35.44 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.69 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 34.36 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.22 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.21 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.11 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.05 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 34.01 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.92 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.67 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.63 MB/s"
-        - "\U0001F1E7\U0001F1FF BZ | ⬇️ 33.42 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.28 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.17 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 33.07 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.83 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.83 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.72 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 32.66 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.65 MB/s"
-        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 32.42 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.25 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.14 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.12 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.12 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.11 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 32.08 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.85 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.49 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.35 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.33 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.31 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.22 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 31.21 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.17 MB/s"
-        - "\U0001F1F7\U0001F1FA RU | ⬇️ 31.16 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.00 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.95 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.89 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.71 MB/s"
-        - "\U0001F1E6\U0001F1FA AU | ⬇️ 30.65 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.35 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.96 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.94 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.76 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.74 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.54 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.50 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.45 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.14 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.12 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.99 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.90 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.81 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.76 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.61 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.03 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 27.94 MB/s"
-        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 27.48 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 27.04 MB/s"
-        - "\U0001F1FB\U0001F1EA VE | ⬇️ 26.74 MB/s"
-        - "\U0001F1E9\U0001F1EA DE | ⬇️ 26.21 MB/s"
-        - "\U0001F1F0\U0001F1F7 KR | ⬇️ 25.80 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 25.11 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 24.50 MB/s"
-        - "\U0001F1E8\U0001F1ED CH | ⬇️ 23.86 MB/s"
-        - "\U0001F1EF\U0001F1F5 JP | ⬇️ 23.17 MB/s"
-        - "\U0001F1E6\U0001F1EA AE | ⬇️ 22.96 MB/s"
-        - "\U0001F1F3\U0001F1F4 NO | ⬇️ 22.49 MB/s"
-        - "\U0001F1E6\U0001F1F9 AT | ⬇️ 22.35 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 21.07 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 20.88 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 20.68 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 19.43 MB/s"
-        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 18.08 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 17.49 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 17.38 MB/s"
-        - "\U0001F1FB\U0001F1EA VE | ⬇️ 17.36 MB/s"
-        - "\U0001F1E6\U0001F1F9 AT | ⬇️ 17.16 MB/s"
-        - "\U0001F1E9\U0001F1EA DE | ⬇️ 17.15 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 17.11 MB/s"
-        - "\U0001F1F8\U0001F1EC SG | ⬇️ 15.89 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 84.45 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 72.59 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 54.23 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 53.96 MB/s"
+        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 53.33 MB/s"
+        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 53.07 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 50.91 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 47.01 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 43.62 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 42.21 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 42.09 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 41.88 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 41.78 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 40.60 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 34.76 MB/s"
+        - "\U0001F1FB\U0001F1EA VE | ⬇️ 34.31 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.67 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 32.26 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 32.10 MB/s"
+        - "\U0001F1E6\U0001F1FA AU | ⬇️ 31.71 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.63 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 31.05 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.94 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.72 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.65 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.44 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.37 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 30.37 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 30.23 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.97 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.89 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.61 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.56 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 29.29 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.25 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.03 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 29.03 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.91 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.82 MB/s"
+        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 28.73 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.67 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.50 MB/s"
+        - "\U0001F1F0\U0001F1F7 KR | ⬇️ 28.48 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 28.06 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.87 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.85 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.71 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.67 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.63 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.57 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 27.38 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 27.21 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.12 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 27.04 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.82 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.81 MB/s"
+        - "\U0001F1E7\U0001F1FF BZ | ⬇️ 26.79 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.46 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.34 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 26.31 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 26.16 MB/s"
+        - "\U0001F1EF\U0001F1F5 JP | ⬇️ 26.03 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.94 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.68 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.59 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.52 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.44 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.18 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.09 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 25.07 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.79 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.69 MB/s"
+        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 24.69 MB/s"
+        - "\U0001F1E6\U0001F1EA AE | ⬇️ 24.35 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.17 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 24.14 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.98 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.97 MB/s"
+        - None_1084
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 23.76 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.67 MB/s"
+        - None_9
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 23.17 MB/s"
+        - 德国_606
+        - None_841
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 22.35 MB/s"
+        - 瑞士_13
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 21.36 MB/s"
+        - None_1062
+        - "\U0001F1F2\U0001F1FE MY | ⬇️ 21.06 MB/s"
+        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 20.58 MB/s"
+        - "\U0001F1F8\U0001F1EC SG | ⬇️ 20.48 MB/s"
+        - 阿联酋_36
+        - 法国_172
+        - 荷兰_247
+        - 新加坡_1
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 19.37 MB/s"
+        - 新加坡_4
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 19.29 MB/s"
+        - None_144
+        - 新加坡_215
+        - "\U0001F1F1\U0001F1FB LV | ⬇️ 18.51 MB/s"
+        - "\U0001F1E6\U0001F1F9 AT | ⬇️ 18.22 MB/s"
+        - None_146
+        - 奥地利_10
+        - 美国_325
       type: url-test
       url: http://www.gstatic.com/generate_204
 rules:
