@@ -13,7 +13,7 @@
 
 ```
 
-[https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml](https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml)
+[https://raw.githubusercontent.com/qjlxg/mihomo/refs/heads/main/clash.yaml](https://raw.githubusercontent.com/qjlxg/mihomo/refs/heads/main/clash.yaml)
 
 ````
 
