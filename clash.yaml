@@ -1,620 +1,488 @@
 proxies:
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 111.25 MB/s"
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 162.63 MB/s"
       port: 56224
       server: 172.234.221.94
       type: vless
       uuid: e3d0de50-7673-4d13-be7b-e508632ed430
-    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 97.24 MB/s"
+    - name: "\U0001F1FA\U0001F1F8 US | ⬇️ 109.25 MB/s"
       port: 2321
       server: 172.234.192.79
       type: vless
       uuid: 4c266060-28aa-4fd4-8286-86127e16b260
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 74.87 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 64.74.163.82
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 89.84 MB/s"
+      password: tvX1v#NSFP_LG_bJ
+      port: 808
+      server: 149.28.212.97
       type: ss
     - alterId: 0
       cipher: auto
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 71.02 MB/s"
-      port: "443"
-      server: 165.140.216.141
-      type: vmess
-      uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
-    - alterId: 0
-      cipher: auto
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 69.48 MB/s"
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 89.28 MB/s"
       port: 443
       server: 165.140.216.141
       type: vmess
       uuid: e7d72a8d-26f2-4b54-b366-0c43e0bcba7d
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 69.15 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 84.79 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 79.127.233.170
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 68.84 MB/s"
-      password: tvX1v#NSFP_LG_bJ
-      port: 808
-      server: 149.28.212.97
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 62.65 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 193.29.139.144
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 58.55 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 193.29.139.235
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 56.65 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.158.171.60
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 55.09 MB/s"
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.158.171.110
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 54.26 MB/s"
-      password: 360e21d21977dc11
-      port: 57456
-      server: us.vmagnum.win
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E8\U0001F1FF CZ | ⬇️ 54.24 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 71.54 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
-      server: 195.181.160.6
+      server: 64.74.163.82
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 53.07 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 193.29.139.233
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 52.57 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 64.74.163.130
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.79 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 193.29.139.217
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.46 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 151.242.251.153
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F8\U0001F1EA SE | ⬇️ 50.40 MB/s"
-      password: tvX1v#NSFP_LG_bJ
-      port: 808
-      server: 65.20.115.194
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 49.68 MB/s"
-      password: 360e21d21977dc11
-      port: 57456
-      server: 104.167.197.25
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 48.60 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 193.29.139.227
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 48.44 MB/s"
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 49.72 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 104.192.226.106
       type: ss
     - alterId: 64
       cipher: auto
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 47.20 MB/s"
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 47.77 MB/s"
       port: 30002
       server: 38.12.83.217
       type: vmess
       uuid: 418048af-a293-4b99-9b0c-98ca3580dd24
+    - name: "\U0001F1E9\U0001F1EA DE | ⬇️ 45.74 MB/s"
+      port: 27168
+      server: 5.75.199.161
+      type: vless
+      uuid: fbfcb416-925b-49c0-80c7-b5cc110849df
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.70 MB/s"
+      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 43.56 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 64.74.163.218
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E8\U0001F1FF CZ | ⬇️ 43.47 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 195.181.160.6
+      type: ss
+    - name: "\U0001F1EB\U0001F1EE FI | ⬇️ 40.42 MB/s"
+      port: 8880
+      server: 65.109.211.210
+      type: vless
+      uuid: eda3f85f-abed-4533-8dec-630fa571a28f
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FB\U0001F1EA VE | ⬇️ 40.24 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 45.158.171.110
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 39.69 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
-      server: 151.242.251.131
+      server: 193.29.139.233
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.69 MB/s"
-      password: 4a2rfixophdjffa8KVA4Aa
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 39.40 MB/s"
+      password: cvII85TrW6n0OGyfpHVS1u
       port: 8080
-      server: 193.29.139.157
+      server: 193.29.139.164
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.09 MB/s"
-      password: 4a2rfixophdjffa8KVA4Aa
-      port: 8080
-      server: 151.242.251.144
+      name: "\U0001F1F8\U0001F1EA SE | ⬇️ 38.98 MB/s"
+      password: tvX1v#NSFP_LG_bJ
+      port: 800
+      server: 65.20.115.194
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1E7\U0001F1F7 BR | ⬇️ 44.81 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 185.192.124.188
-      type: ss
-    - name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 44.79 MB/s"
-      port: 44809
-      server: 148.113.180.24
-      type: vless
-      uuid: 0128b29c-1359-4da4-c181-5125415188c7
-    - alterId: 0
-      cipher: auto
-      name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 44.33 MB/s"
-      port: 42610
-      server: 51.79.86.182
-      type: vmess
-      uuid: e0957ca6-f613-4017-ff3c-effd1da8871a
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F7\U0001F1F4 RO | ⬇️ 43.85 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 185.126.237.38
+      name: "\U0001F1F7\U0001F1FA RU | ⬇️ 37.83 MB/s"
+      password: 360e21d21977dc11
+      port: 57456
+      server: 45.139.24.24
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F5\U0001F1F9 PT | ⬇️ 42.79 MB/s"
+      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 37.82 MB/s"
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      server: 64.176.184.129
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 37.37 MB/s"
+      password: 360e21d21977dc11
+      port: 57456
+      server: us.vmagnum.win
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F5\U0001F1F9 PT | ⬇️ 36.94 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 185.231.233.173
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 42.11 MB/s"
-      password: 1RWwXhwfAB5gAEozU4G2Pg
-      port: 8080
-      server: 45.87.175.188
+      name: "\U0001F1E7\U0001F1F7 BR | ⬇️ 36.34 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 185.192.124.188
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F5\U0001F1F1 PL | ⬇️ 41.56 MB/s"
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 35.17 MB/s"
+      password: QCXDxuDlTTMD7jtgHUjIoj
+      port: 8080
+      server: 193.29.139.227
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 34.81 MB/s"
+      password: 4a2rfixophdjffa8KVA4Aa
+      port: 8080
+      server: 151.242.251.144
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F5\U0001F1F1 PL | ⬇️ 34.45 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 92.118.205.228
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EE\U0001F1F1 IL | ⬇️ 41.50 MB/s"
+      name: "\U0001F1EE\U0001F1F1 IL | ⬇️ 34.35 MB/s"
       password: f8f7aCzcPKbsF8p3
       port: 990
       server: 169.150.202.174
       type: ss
     - alterId: 0
       cipher: auto
-      name: "\U0001F1F7\U0001F1FA RU | ⬇️ 40.96 MB/s"
+      name: "\U0001F1F7\U0001F1FA RU | ⬇️ 34.02 MB/s"
       port: 11052
       server: 45.67.230.79
       type: vmess
       uuid: 314185f7-931d-4656-922d-0857e7afd224
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 38.78 MB/s"
-      password: oXGp1+ihlfKg826H
-      port: 1866
-      server: 64.176.184.129
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F7\U0001F1FA RU | ⬇️ 38.45 MB/s"
-      password: 360e21d21977dc11
-      port: 57456
-      server: 45.139.24.24
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 37.53 MB/s"
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 151.242.251.147
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 36.19 MB/s"
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 193.29.139.164
-      type: ss
-    - alterId: 0
-      cipher: none
-      name: "\U0001F1E6\U0001F1FA AU | ⬇️ 31.21 MB/s"
-      port: 443
-      server: 103.57.249.204
-      type: vmess
-      uuid: f13143a7-542d-49ec-9428-098142b6977c
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 31.19 MB/s"
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 33.46 MB/s"
       password: 4a2rfixophdjffa8KVA4Aa
       port: 8080
       server: 193.29.139.162
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 31.15 MB/s"
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: ltnl17.saint.ydns.eu
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F3\U0001F1F4 NO | ⬇️ 29.99 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 185.213.23.226
-      type: ss
-    - name: "\U0001F1EE\U0001F1F3 IN | ⬇️ 29.99 MB/s"
-      port: 2321
-      server: 172.105.57.184
-      type: vless
-      uuid: da1668a7-3a7f-405d-874e-c28652c68c4d
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1F5\U0001F1FE PY | ⬇️ 29.94 MB/s"
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 38.165.233.18
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EE\U0001F1F3 IN | ⬇️ 29.61 MB/s"
-      password: WgACwLy1BPk47JOzHyA7zu
-      port: 47347
-      server: 167.71.235.238
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 29.42 MB/s"
-      password: a58fa62b4944ddbf
-      port: 57456
-      server: 81.19.137.222
-      type: ss
-    - name: '[VLESS] 45.88.183.158:44629'
-      port: 44629
-      server: 45.88.183.158
-      type: vless
-      uuid: d3daa900-0377-4575-9ebc-c4d88cb8486c
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.165:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 33.21 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
-      server: 45.87.175.165
+      server: 151.242.251.131
       type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.183:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 45.87.175.183
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.179:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 193.29.139.179
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.158.171.146:8080'
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 45.158.171.146
-      type: ss
+    - name: "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.07 MB/s"
+      port: 44809
+      server: 148.113.180.24
+      type: vless
+      uuid: 0128b29c-1359-4da4-c181-5125415188c7
     - alterId: 0
       cipher: auto
-      name: '[VMESS] 51.38.64.209:44023'
-      port: 44023
-      server: 51.38.64.209
+      name: "\U0001F1E6\U0001F1FA AU | ⬇️ 32.54 MB/s"
+      port: 443
+      server: 103.57.249.204
       type: vmess
-      uuid: 7da457da-ed0f-437d-c81d-6c35885bbea3
+      uuid: f13143a7-542d-49ec-9428-098142b6977c
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 18.162.146.85:8319'
-      password: ljqdalu13..
-      port: 8319
-      server: 18.162.146.85
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 152.42.245.170:38450'
+      name: "\U0001F1F8\U0001F1EC SG | ⬇️ 31.37 MB/s"
       password: TWRxYKr1fIkQQjRgJIWeCU
       port: 38450
       server: 152.42.245.170
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 103.104.247.49:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 29.80 MB/s"
       password: oZIoA69Q8yhcQV8ka3Pa3A
       port: 8080
-      server: 103.104.247.49
+      server: 193.29.139.235
       type: ss
-    - alterId: 0
-      cipher: auto
-      name: '[VMESS] 89.31.120.192:443'
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 29.32 MB/s"
+      password: 0NeN5ta7FLa5B9DLytU0um
       port: 443
-      server: 89.31.120.192
-      type: vmess
-      uuid: 44537595-9ccc-4b83-8936-5f9ad3229019
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.209:8080'
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 193.29.139.209
+      server: promo1o.bystrivpn.ru
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] promo6v.bystrivpn.ru:443'
-      password: 9JeYy8SkViXuSHVs9GFeSe
-      port: 443
-      server: promo6v.bystrivpn.ru
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.154.206.192:990'
-      password: f8f7aCzcPKbsF8p3
-      port: 990
-      server: 45.154.206.192
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 192.53.172.74:30013'
+      name: "\U0001F1F8\U0001F1EC SG | ⬇️ 29.02 MB/s"
       password: 2df393ef-b5fa-4ffd-9af3-761034bf33e3
       port: 30013
       server: 192.53.172.74
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 141.164.63.32:30936'
+      name: "\U0001F1F0\U0001F1F7 KR | ⬇️ 28.02 MB/s"
       password: b25727df-15ea-453c-a006-13fe98fee1d2
       port: 30936
       server: 141.164.63.32
       type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E7\U0001F1F7 BR | ⬇️ 27.86 MB/s"
+      password: NCPL991SRxT79QuGtUjoRn
+      port: 8443
+      server: 170.80.110.29
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EE\U0001F1F3 IN | ⬇️ 27.77 MB/s"
+      password: WgACwLy1BPk47JOzHyA7zu
+      port: 47347
+      server: 167.71.235.238
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EB\U0001F1F7 FR | ⬇️ 27.75 MB/s"
+      password: a58fa62b4944ddbf
+      port: 57456
+      server: 81.19.137.222
+      type: ss
     - alterId: 0
       cipher: auto
-      name: '[VMESS] 45.128.54.84:37313'
-      port: 37313
-      server: 45.128.54.84
+      name: "\U0001F1EC\U0001F1E7 GB | ⬇️ 26.64 MB/s"
+      port: 44023
+      server: 51.38.64.209
       type: vmess
-      uuid: 72feb833-4196-4a70-a3f5-aeb011f7d534
+      uuid: 7da457da-ed0f-437d-c81d-6c35885bbea3
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 77.110.110.117:443'
-      password: 9JeYy8SkViXuSHVs9GFeSe
-      port: 443
-      server: 77.110.110.117
+      name: "\U0001F1F3\U0001F1F4 NO | ⬇️ 26.06 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 185.213.23.226
+      type: ss
+    - name: "\U0001F1EE\U0001F1F3 IN | ⬇️ 26.03 MB/s"
+      port: 2321
+      server: 172.105.57.184
+      type: vless
+      uuid: da1668a7-3a7f-405d-874e-c28652c68c4d
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F5\U0001F1FE PY | ⬇️ 25.36 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 38.165.233.18
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.164:8080'
-      password: 1RWwXhwfAB5gAEozU4G2Pg
-      port: 8080
-      server: 45.87.175.164
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 25.25 MB/s"
+      password: 38f34312c73acae2
+      port: 25930
+      server: 135.125.219.2
+      type: ss
+    - name: "\U0001F1EE\U0001F1F3 IN | ⬇️ 24.76 MB/s"
+      port: 44629
+      server: 45.88.183.158
+      type: vless
+      uuid: d3daa900-0377-4575-9ebc-c4d88cb8486c
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F9\U0001F1ED TH | ⬇️ 24.56 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 119.59.98.58
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 147.45.178.200:57456'
-      password: a58fa62b4944ddbf
-      port: 57456
-      server: 147.45.178.200
+      name: "\U0001F1E8\U0001F1ED CH | ⬇️ 24.14 MB/s"
+      password: oXGp1+ihlfKg826H
+      port: 1866
+      server: 204.136.10.115
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] pl.vmagnum.win:57456'
-      password: a58fa62b4944ddbf
-      port: 57456
-      server: pl.vmagnum.win
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] ltnl13.saint.ydns.eu:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: ltnl13.saint.ydns.eu
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.189:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 23.45 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
-      server: 193.29.139.189
+      server: 193.29.139.217
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.192:8080'
-      password: 4a2rfixophdjffa8KVA4Aa
-      port: 8080
-      server: 45.87.175.192
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.158.171.70:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 22.94 MB/s"
       password: oZIoA69Q8yhcQV8ka3Pa3A
       port: 8080
-      server: 45.158.171.70
+      server: 193.29.139.144
+      type: ss
+    - cipher: aes-256-gcm
+      name: "\U0001F1F8\U0001F1EC SG | ⬇️ 22.33 MB/s"
+      password: 44hniF/58uMkKSVNM86hBvtcV8VK6zX2mAr7tjMjDqM=
+      port: 8443
+      server: 167.172.69.97
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 185.177.229.245:1866'
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 21.14 MB/s"
       password: oXGp1+ihlfKg826H
       port: 1866
       server: 185.177.229.245
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.166:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 45.87.175.166
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.92 MB/s"
+      password: qscavF5UviIL-8V-E4raBA
+      port: 2222
+      server: 91.84.104.133
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] ltnl12.saint.ydns.eu:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.91 MB/s"
       password: oZIoA69Q8yhcQV8ka3Pa3A
       port: 8080
-      server: ltnl12.saint.ydns.eu
+      server: 103.104.247.49
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.167:8080'
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 20.74 MB/s"
       password: QCXDxuDlTTMD7jtgHUjIoj
       port: 8080
-      server: 45.87.175.167
+      server: 45.87.175.165
       type: ss
+    - alterId: 0
+      cipher: auto
+      name: "\U0001F1F2\U0001F1FE MY | ⬇️ 20.59 MB/s"
+      port: 37313
+      server: 45.128.54.84
+      type: vmess
+      uuid: 72feb833-4196-4a70-a3f5-aeb011f7d534
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.133:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 193.29.139.133
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.175:8080'
-      password: QCXDxuDlTTMD7jtgHUjIoj
-      port: 8080
-      server: 45.87.175.175
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.190:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: 45.87.175.190
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 103.104.247.45:8080'
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 103.104.247.45
-      type: ss
-    - name: '[VLESS] 109.120.132.142:40617'
-      port: 40617
-      server: 109.120.132.142
-      type: vless
-      uuid: d8d05386-e381-40a4-bb63-715c208b3ed3
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] beesyar.org:8080'
-      password: cvII85TrW6n0OGyfpHVS1u
-      port: 8080
-      server: beesyar.org
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.206:8080'
-      password: 4a2rfixophdjffa8KVA4Aa
-      port: 8080
-      server: 193.29.139.206
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 193.29.139.175:8080'
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.58 MB/s"
       password: 1RWwXhwfAB5gAEozU4G2Pg
       port: 8080
       server: 193.29.139.175
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.87.175.171:8080'
-      password: 4a2rfixophdjffa8KVA4Aa
-      port: 8080
-      server: 45.87.175.171
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] 45.158.171.66:8080'
-      password: oZIoA69Q8yhcQV8ka3Pa3A
-      port: 8080
-      server: 45.158.171.66
-      type: ss
-    - cipher: chacha20-ietf-poly1305
-      name: '[SS] rusrv.vmagnum.win:57456'
+      name: "\U0001F1E9\U0001F1EA DE | ⬇️ 20.18 MB/s"
       password: a58fa62b4944ddbf
       port: 57456
-      server: rusrv.vmagnum.win
+      server: desrv.vmagnum.win
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 95.163.176.37:8506'
-      password: eUh4lSpi7nOYj0vSrqLUh0
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 19.52 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 193.29.139.160
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EF\U0001F1F5 JP | ⬇️ 19.17 MB/s"
+      password: ljqdalu13..
+      port: 8319
+      server: 54.238.207.188
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 18.41 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 103.104.247.47
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 17.97 MB/s"
+      password: tvX1v#NSFP_LG_bJ
+      port: 808
+      server: 207.90.239.80
+      type: ss
+    - name: "\U0001F1E9\U0001F1EA DE | ⬇️ 17.76 MB/s"
+      port: 38413
+      server: 135.125.182.74
+      type: vless
+      uuid: 0a30769a-400b-4501-a7f0-47d4eea82ae3
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1FA\U0001F1F8 US | ⬇️ 17.43 MB/s"
+      password: 1RWwXhwfAB5gAEozU4G2Pg
+      port: 8080
+      server: 45.87.175.188
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 17.31 MB/s"
+      password: QCXDxuDlTTMD7jtgHUjIoj
+      port: 8080
+      server: 151.242.251.153
+      type: ss
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1E6\U0001F1F9 AT | ⬇️ 17.16 MB/s"
+      password: VdswxetVc6AhIps18rtYbm
       port: 8506
       server: 95.163.176.37
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 51.195.119.47:1080'
-      password: qXvO7zYU7KeaB0Md7DQLow
-      port: 1080
-      server: 51.195.119.47
+      name: "\U0001F1ED\U0001F1F0 HK | ⬇️ 16.84 MB/s"
+      password: ljqdalu13..
+      port: 8316
+      server: 18.162.146.85
+      type: ss
+    - name: "\U0001F3F3️ IR | ⬇️ 16.58 MB/s"
+      port: 443
+      server: ger1.kacivil.ir
+      type: vless
+      uuid: 4ef3e4ad-49a0-45e8-b9f7-3de98a3aca67
+    - cipher: chacha20-ietf-poly1305
+      name: "\U0001F1EA\U0001F1F8 ES | ⬇️ 16.36 MB/s"
+      password: f8f7aCzcPKbsF8p3
+      port: 990
+      server: 45.154.206.192
       type: ss
     - cipher: chacha20-ietf-poly1305
-      name: '[SS] 142.4.216.225:80'
-      password: JIhN6rBKkaEboLNXVSv5rq
-      port: 80
-      server: 142.4.216.225
+      name: "\U0001F1F3\U0001F1F1 NL | ⬇️ 16.00 MB/s"
+      password: oZIoA69Q8yhcQV8ka3Pa3A
+      port: 8080
+      server: 193.29.139.240
       type: ss
 proxy-groups:
     - interval: 300
       name: 自动选择
       proxies:
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 111.25 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 97.24 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 74.87 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 71.02 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 69.48 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 69.15 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 68.84 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 62.65 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 58.55 MB/s"
-        - "\U0001F1FB\U0001F1EA VE | ⬇️ 56.65 MB/s"
-        - "\U0001F1FB\U0001F1EA VE | ⬇️ 55.09 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 54.26 MB/s"
-        - "\U0001F1E8\U0001F1FF CZ | ⬇️ 54.24 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 53.07 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.79 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 51.46 MB/s"
-        - "\U0001F1F8\U0001F1EA SE | ⬇️ 50.40 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 49.68 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 48.60 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 48.44 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 47.20 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.70 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.69 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 46.09 MB/s"
-        - "\U0001F1E7\U0001F1F7 BR | ⬇️ 44.81 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 44.79 MB/s"
-        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 44.33 MB/s"
-        - "\U0001F1F7\U0001F1F4 RO | ⬇️ 43.85 MB/s"
-        - "\U0001F1F5\U0001F1F9 PT | ⬇️ 42.79 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 42.11 MB/s"
-        - "\U0001F1F5\U0001F1F1 PL | ⬇️ 41.56 MB/s"
-        - "\U0001F1EE\U0001F1F1 IL | ⬇️ 41.50 MB/s"
-        - "\U0001F1F7\U0001F1FA RU | ⬇️ 40.96 MB/s"
-        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 38.78 MB/s"
-        - "\U0001F1F7\U0001F1FA RU | ⬇️ 38.45 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 37.53 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 36.19 MB/s"
-        - "\U0001F1E6\U0001F1FA AU | ⬇️ 31.21 MB/s"
-        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 31.19 MB/s"
-        - "\U0001F1FA\U0001F1F8 US | ⬇️ 31.15 MB/s"
-        - "\U0001F1F3\U0001F1F4 NO | ⬇️ 29.99 MB/s"
-        - "\U0001F1EE\U0001F1F3 IN | ⬇️ 29.99 MB/s"
-        - "\U0001F1F5\U0001F1FE PY | ⬇️ 29.94 MB/s"
-        - "\U0001F1EE\U0001F1F3 IN | ⬇️ 29.61 MB/s"
-        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 29.42 MB/s"
-        - '[VLESS] 45.88.183.158:44629'
-        - '[SS] 45.87.175.165:8080'
-        - '[SS] 45.87.175.183:8080'
-        - '[SS] 193.29.139.179:8080'
-        - '[SS] 45.158.171.146:8080'
-        - '[VMESS] 51.38.64.209:44023'
-        - '[SS] 18.162.146.85:8319'
-        - '[SS] 152.42.245.170:38450'
-        - '[SS] 103.104.247.49:8080'
-        - '[VMESS] 89.31.120.192:443'
-        - '[SS] 193.29.139.209:8080'
-        - '[SS] promo6v.bystrivpn.ru:443'
-        - '[SS] 45.154.206.192:990'
-        - '[SS] 192.53.172.74:30013'
-        - '[SS] 141.164.63.32:30936'
-        - '[VMESS] 45.128.54.84:37313'
-        - '[SS] 77.110.110.117:443'
-        - '[SS] 45.87.175.164:8080'
-        - '[SS] 147.45.178.200:57456'
-        - '[SS] pl.vmagnum.win:57456'
-        - '[SS] ltnl13.saint.ydns.eu:8080'
-        - '[SS] 193.29.139.189:8080'
-        - '[SS] 45.87.175.192:8080'
-        - '[SS] 45.158.171.70:8080'
-        - '[SS] 185.177.229.245:1866'
-        - '[SS] 45.87.175.166:8080'
-        - '[SS] ltnl12.saint.ydns.eu:8080'
-        - '[SS] 45.87.175.167:8080'
-        - '[SS] 193.29.139.133:8080'
-        - '[SS] 45.87.175.175:8080'
-        - '[SS] 45.87.175.190:8080'
-        - '[SS] 103.104.247.45:8080'
-        - '[VLESS] 109.120.132.142:40617'
-        - '[SS] beesyar.org:8080'
-        - '[SS] 193.29.139.206:8080'
-        - '[SS] 193.29.139.175:8080'
-        - '[SS] 45.87.175.171:8080'
-        - '[SS] 45.158.171.66:8080'
-        - '[SS] rusrv.vmagnum.win:57456'
-        - '[SS] 95.163.176.37:8506'
-        - '[SS] 51.195.119.47:1080'
-        - '[SS] 142.4.216.225:80'
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 162.63 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 109.25 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 89.84 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 89.28 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 84.79 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 71.54 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 52.57 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 49.72 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 47.77 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 45.74 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 43.56 MB/s"
+        - "\U0001F1E8\U0001F1FF CZ | ⬇️ 43.47 MB/s"
+        - "\U0001F1EB\U0001F1EE FI | ⬇️ 40.42 MB/s"
+        - "\U0001F1FB\U0001F1EA VE | ⬇️ 40.24 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 39.69 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 39.40 MB/s"
+        - "\U0001F1F8\U0001F1EA SE | ⬇️ 38.98 MB/s"
+        - "\U0001F1F7\U0001F1FA RU | ⬇️ 37.83 MB/s"
+        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 37.82 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 37.37 MB/s"
+        - "\U0001F1F5\U0001F1F9 PT | ⬇️ 36.94 MB/s"
+        - "\U0001F1E7\U0001F1F7 BR | ⬇️ 36.34 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 35.17 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 34.81 MB/s"
+        - "\U0001F1F5\U0001F1F1 PL | ⬇️ 34.45 MB/s"
+        - "\U0001F1EE\U0001F1F1 IL | ⬇️ 34.35 MB/s"
+        - "\U0001F1F7\U0001F1FA RU | ⬇️ 34.02 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 33.46 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 33.21 MB/s"
+        - "\U0001F1E8\U0001F1E6 CA | ⬇️ 33.07 MB/s"
+        - "\U0001F1E6\U0001F1FA AU | ⬇️ 32.54 MB/s"
+        - "\U0001F1F8\U0001F1EC SG | ⬇️ 31.37 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 29.80 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 29.32 MB/s"
+        - "\U0001F1F8\U0001F1EC SG | ⬇️ 29.02 MB/s"
+        - "\U0001F1F0\U0001F1F7 KR | ⬇️ 28.02 MB/s"
+        - "\U0001F1E7\U0001F1F7 BR | ⬇️ 27.86 MB/s"
+        - "\U0001F1EE\U0001F1F3 IN | ⬇️ 27.77 MB/s"
+        - "\U0001F1EB\U0001F1F7 FR | ⬇️ 27.75 MB/s"
+        - "\U0001F1EC\U0001F1E7 GB | ⬇️ 26.64 MB/s"
+        - "\U0001F1F3\U0001F1F4 NO | ⬇️ 26.06 MB/s"
+        - "\U0001F1EE\U0001F1F3 IN | ⬇️ 26.03 MB/s"
+        - "\U0001F1F5\U0001F1FE PY | ⬇️ 25.36 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 25.25 MB/s"
+        - "\U0001F1EE\U0001F1F3 IN | ⬇️ 24.76 MB/s"
+        - "\U0001F1F9\U0001F1ED TH | ⬇️ 24.56 MB/s"
+        - "\U0001F1E8\U0001F1ED CH | ⬇️ 24.14 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 23.45 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 22.94 MB/s"
+        - "\U0001F1F8\U0001F1EC SG | ⬇️ 22.33 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 21.14 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.92 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.91 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 20.74 MB/s"
+        - "\U0001F1F2\U0001F1FE MY | ⬇️ 20.59 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 20.58 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 20.18 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 19.52 MB/s"
+        - "\U0001F1EF\U0001F1F5 JP | ⬇️ 19.17 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 18.41 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 17.97 MB/s"
+        - "\U0001F1E9\U0001F1EA DE | ⬇️ 17.76 MB/s"
+        - "\U0001F1FA\U0001F1F8 US | ⬇️ 17.43 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 17.31 MB/s"
+        - "\U0001F1E6\U0001F1F9 AT | ⬇️ 17.16 MB/s"
+        - "\U0001F1ED\U0001F1F0 HK | ⬇️ 16.84 MB/s"
+        - "\U0001F3F3️ IR | ⬇️ 16.58 MB/s"
+        - "\U0001F1EA\U0001F1F8 ES | ⬇️ 16.36 MB/s"
+        - "\U0001F1F3\U0001F1F1 NL | ⬇️ 16.00 MB/s"
       type: url-test
       url: http://www.gstatic.com/generate_204
 rules:
