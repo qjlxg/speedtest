@@ -1,5 +1,6 @@
 来源：https://github.com/faceair/clash-speedtest
 
+https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml
 
 clash-speedtest 用法
 -c string
