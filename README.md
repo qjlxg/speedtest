@@ -1,64 +1,84 @@
-来源：https://github.com/faceair/clash-speedtest
 
-https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml
 
-clash-speedtest 用法
--c string
+```markdown
+# Clash Speedtest 使用指南
 
-配置文件路径，也支持 http(s) 网址。
+这是一个基于 [faceair/clash-speedtest](https://github.com/faceair/clash-speedtest) 的使用指南，旨在帮助你快速筛选出最快的 Clash 代理节点。
 
--f string
+---
 
-按名称过滤代理节点，使用正则表达式（默认为 .*）。
+## 导入客户端配置
 
--b string
+你可以使用以下 URL 导入 Clash 客户端配置：
 
-按关键词屏蔽代理节点，使用 | 分隔多个关键词（例如：-b 'rate|x1|1x'）。
+```
 
--server-url string
+[https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml](https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml)
 
-用于测试代理节点的服务器网址（默认为 https://speed.cloudflare.com）。
+````
 
--download-size int
+---
 
-测试代理节点的下载文件大小（默认为 50MB）。
+## clash-speedtest 用法
 
--upload-size int
+### 基础用法
 
-测试代理节点的上传文件大小（默认为 20MB）。
+`clash-speedtest` 是一个命令行工具，通过配置不同的参数来实现对 Clash 代理节点的筛选和测速。
 
--timeout duration
+```bash
+clash-speedtest [flags]
+````
 
-测试代理节点的超时时间（默认为 5s）。
+### 参数说明
 
--concurrent int
+| 参数 | 类型 | 描述 | 默认值 |
+| :--- | :--- | :--- | :--- |
+| `-c` | `string` | **配置文件路径**，也支持 `http(s)` 网址。 | 无 |
+| `-f` | `string` | 按名称**过滤**代理节点，支持正则表达式。 | `.*` |
+| `-b` | `string` | 按关键词**屏蔽**代理节点，使用 `\|` 分隔多个关键词。 | 无 |
+| `-server-url` | `string` | 用于测试代理节点的**服务器网址**。 | `https://speed.cloudflare.com` |
+| `-download-size` | `int` | 测试代理节点的**下载文件大小**（单位：MB）。 | `50MB` |
+| `-upload-size` | `int` | 测试代理节点的**上传文件大小**（单位：MB）。 | `20MB` |
+| `-timeout` | `duration` | 测试代理节点的**超时时间**。 | `5s` |
+| `-concurrent` | `int` | **下载并发数**。 | `4` |
+| `-output` | `string` | **输出配置文件**的路径。 | `""` |
+| `-stash-compatible` | 无 | **启用 Stash 兼容模式**。 | 无 |
+| `-max-latency` | `duration` | 过滤掉**延迟大于**此值的节点。 | `800ms` |
+| `-min-download-speed` | `float` | 过滤掉**下载速度小于**此值的节点（单位：MB/s）。 | `5MB/s` |
+| `-min-upload-speed` | `float` | 过滤掉**上传速度小于**此值的节点（单位：MB/s）。 | `2MB/s` |
+| `-rename` | 无 | 根据 IP 归属地和速度**重命名**节点。 | 无 |
+| `-fast` | 无 | **启用快速模式**，只进行延迟测试。 | 无 |
 
-下载并发数（默认为 4）。
+-----
 
--output string
+### 示例
 
-输出配置文件的路径（默认为 ""）。
+**1. 筛选并测速**
 
--stash-compatible
+```bash
+# 从指定的 URL 获取配置文件，并根据下载和上传速度进行筛选
+clash-speedtest -c [https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml](https://raw.githubusercontent.com/qjlxg/speedtest/refs/heads/main/clash.yaml) -min-download-speed 10 -min-upload-speed 5
+```
 
-启用 Stash 兼容模式。
+**2. 仅进行延迟测试 (快速模式)**
 
--max-latency duration
+```bash
+# 只进行延迟测试，并过滤掉延迟大于 500ms 的节点
+clash-speedtest -c my_clash_config.yaml -fast -max-latency 500ms
+```
 
-过滤掉延迟大于此值的节点（默认为 800ms）。
+**3. 屏蔽特定节点并重命名**
 
--min-download-speed float
+```bash
+# 屏蔽名称中包含 "rate" 或 "x1" 的节点，并根据速度重命名
+clash-speedtest -c my_clash_config.yaml -b 'rate\|x1' -rename
+```
 
-过滤掉下载速度小于此值的节点（单位：MB/s）（默认为 5）。
+-----
 
--min-upload-speed float
+## 许可证
 
-过滤掉上传速度小于此值的节点（单位：MB/s）（默认为 2）。
+该项目基于 [faceair/clash-speedtest](https://github.com/faceair/clash-speedtest) 仓库，遵循其相应的开源许可证。
 
--rename
-
-根据 IP 归属地和速度重命名节点。
-
--fast
-
-启用快速模式，只进行延迟测试。
+```
+```
