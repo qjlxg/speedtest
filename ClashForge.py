@@ -115,7 +115,7 @@ clash_config_template = {
     "proxies": [],
     "proxy-groups": [
         {
-            "name": "节点选择",
+            "name": "Node-Select",
             "type": "select",
             "proxies": [
                 "自动选择",
@@ -148,7 +148,7 @@ clash_config_template = {
         },
     ],
     "rules": [
-        "MATCH,节点选择"
+        "MATCH,Node-Select"
     ]
 }
 
