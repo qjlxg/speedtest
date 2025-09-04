@@ -827,7 +827,7 @@ class ClashAPI:
         except httpx.RequestError as e:
             logging.error(f"请求错误: {e}")
             return False
-
+    
     async def test_proxy_delay(self, proxy_name: str, secondary_test: bool = False, cache=None) -> ProxyTestResult:
         if not self.base_url:
             raise ClashAPIException("未建立与 Clash API 的连接")
@@ -934,6 +934,21 @@ class ClashAPI:
                         logging.warning(f"响应内容: {e.response.text}")
                     await asyncio.sleep(1)
         return False
+    
+    async def test_group_proxies(self, proxies: List[str], secondary_test: bool = False, cache=None) -> List[ProxyTestResult]:
+        test_type = "Secondary" if secondary_test else "Primary"
+        logging.info(f"开始{test_type}测试 {len(proxies)} 个节点 (最大并发: {MAX_CONCURRENT_TESTS})")
+        tasks = [self.test_proxy_delay(proxy_name, secondary_test=secondary_test, cache=cache) for proxy_name in proxies]
+        results = []
+        for future in asyncio.as_completed(tasks):
+            result = await future
+            results.append(result)
+            done = len(results)
+            total = len(tasks)
+            print(f"\r{test_type} 测试进度: {done}/{total} ({done / total * 100:.1f}%)", end="", flush=True)
+        print()
+        return results
+
 
 class ClashConfig:
     def __init__(self, config_path: str):
@@ -1042,20 +1057,6 @@ def print_test_summary(group_name: str, results: List[ProxyTestResult], test_typ
             logging.info(f"{i}. {result.name}: 平均 {result.average_delay:.2f}ms, 标准差 {result.std_dev:.2f}ms, 成功率 {result.success_rate * 100:.2f}%")
     return delays
 
-async def test_group_proxies(clash_api: ClashAPI, proxies: List[str], secondary_test: bool = False, cache=None) -> List[ProxyTestResult]:
-    test_type = "Secondary" if secondary_test else "Primary"
-    logging.info(f"开始{test_type}测试 {len(proxies)} 个节点 (最大并发: {MAX_CONCURRENT_TESTS})")
-    tasks = [clash_api.test_proxy_delay(proxy_name, secondary_test=secondary_test, cache=cache) for proxy_name in proxies]
-    results = []
-    for future in asyncio.as_completed(tasks):
-        result = await future
-        results.append(result)
-        done = len(results)
-        total = len(tasks)
-        print(f"\r{test_type} 测试进度: {done}/{total} ({done / total * 100:.1f}%)", end="", flush=True)
-    print()
-    return results
-
 class ClashManager:
     def __init__(self, config_file: str):
         self.config_file = config_file
@@ -1131,7 +1132,7 @@ class ClashManager:
                 
                 if SPEED_TEST:
                     logging.info('\n===================检测节点速度======================\n')
-                    name_mapping = await self.start_download_test(proxy_names, speed_limit=0.1)
+                    name_mapping = await self.api.start_download_test(proxy_names, speed_limit=0.1)
                     self.config.update_proxies_names(name_mapping)
                     
                 self.config.save()
