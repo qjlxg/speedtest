@@ -46,16 +46,16 @@ SECONDARY_TEST_URL = "https://www.youtube.com"
 CLASH_API_PORTS = [9090]
 CLASH_API_HOST = "127.0.0.1"
 CLASH_API_SECRET = ""
-TIMEOUT = 3
+TIMEOUT = 2.5
 SPEED_TEST = True
 SPEED_TEST_URL = "http://speed.cloudflare.com/__down?bytes=52428800"
 SPEED_TEST_LIMIT = 968
 results_speed = []
-MAX_CONCURRENT_TESTS = 120
+MAX_CONCURRENT_TESTS = 188
 LIMIT = 10000
 CONFIG_FILE = 'clash_config.yaml'
 INPUT = "input"
-BAN = ["中国", "China", "CN", "电信", "移动", "联通", "Hong Kong", "Taiwan", "HK", "TW", "澳门", "Macao", "MO"]
+BAN = ["中国", "China", "CN", "电信", "移动", "联通", "Hong Kong", "Taiwan", "HK", "TW", "澳门", "Macao", "MO","台湾","香港"]
 headers = {
     'Accept-Charset': 'utf-8',
     'Accept': 'text/html,application/x-yaml,*/*',
@@ -69,7 +69,7 @@ GEOIP_DB_PATH = "GeoLite2-Country.mmdb"
 switch_lock = threading.Lock()
 
 # Setup logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+logging.basicConfig(level=logging.WARNING, format='%(asctime)s - %(levelname)s - %(message)s')
 
 clash_config_template = {
     "port": 7890,
