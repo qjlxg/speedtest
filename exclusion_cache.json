@@ -7498,5 +7498,313 @@
   "[VMESS] 183.240.245.242:46679": {
     "reason": "GeoIP过滤",
     "timestamp": "2025-09-06T08:57:55.029115"
+  },
+  "[SS] 123.123.213.213:53": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.449915"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1034": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.469717"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1042": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.470047"
+  },
+  "[SS] onhkzoom.dlayernet.xyz:1051": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.477798"
+  },
+  "[SS] onhkzoom.dlayernet.xyz:1052": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.478122"
+  },
+  "[SS] onhkzoom.dlayernet.xyz:1053": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.478431"
+  },
+  "[SS] zominsisa.dlayernet.xyz:1208": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.498300"
+  },
+  "[SS] zominsisa.dlayernet.xyz:1215": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.498723"
+  },
+  "[SS] zominsisa.dlayernet.xyz:1225": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.499158"
+  },
+  "[SS] zominsisa.dlayernet.xyz:1238": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.499483"
+  },
+  "[SS] onintosaisa-b.dlayernet.xyz:589": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.504507"
+  },
+  "[SS] onintosaisa-b.dlayernet.xyz:590": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.504830"
+  },
+  "[SS] onintosaisa-b.dlayernet.xyz:591": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.505159"
+  },
+  "[SS] zominsisa.dlayernet.xyz:1243": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.505485"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:559": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.517786"
+  },
+  "[SS] cnres.standgoo.xyz:564": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.533052"
+  },
+  "[SS] bcnlayer2.intocloud.dev:591": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.632886"
+  },
+  "[SS] unloez.dlayernet.xyz:1021": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.639704"
+  },
+  "[SS] relhkall.intocloud.dev:570": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.704241"
+  },
+  "[SS] bcnlayer2.intocloud.dev:593": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.704771"
+  },
+  "[SS] initlayer-g.intocloud.dev:563": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.730370"
+  },
+  "[SS] initlayer-g.intocloud.dev:564": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.730800"
+  },
+  "[SS] cnres.standgoo.xyz:565": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.731217"
+  },
+  "[SS] initlayer-g.intocloud.dev:565": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.731540"
+  },
+  "[SS] initlayer-f.intocloud.dev:570": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.843139"
+  },
+  "[SS] clayer-c.standlink.pro:572": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.962251"
+  },
+  "[SS] clayer-c.standlink.pro:573": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.962799"
+  },
+  "[SS] relhkall.intocloud.dev:571": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:13.963293"
+  },
+  "[SS] golayerto-h.standlink.pro:573": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.082151"
+  },
+  "[SS] tolayergo-e.standlink.pro:563": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.096325"
+  },
+  "[SS] uscnstand-a.dlayernet.xyz:565": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.101327"
+  },
+  "[SS] uscnstand-a.dlayernet.xyz:566": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.101642"
+  },
+  "[SS] uscnstand-a.dlayernet.xyz:567": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.101947"
+  },
+  "[SS] uscnstand-a.dlayernet.xyz:568": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.102272"
+  },
+  "[SS] uscnstand-a.dlayernet.xyz:569": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.102569"
+  },
+  "[SS] cnusstand-b.dlayernet.xyz:564": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.115241"
+  },
+  "[SS] cnusstand-b.dlayernet.xyz:565": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.115541"
+  },
+  "[SS] cnusstand-b.dlayernet.xyz:566": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.115835"
+  },
+  "[SS] cnusstand-b.dlayernet.xyz:567": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.116156"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:580": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.116459"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:581": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.116751"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:582": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.117060"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:558": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.117356"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:584": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.117647"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:585": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.117940"
+  },
+  "[SS] ontwto-a.dlayernet.xyz:586": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.118251"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1052": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.118540"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1063": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.118827"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1075": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.119132"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1082": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.119425"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1098": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.119713"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1122": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.119999"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1138": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.120314"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1145": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.120603"
+  },
+  "[SS] onsomeru.dlayernet.xyz:1160": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:16:14.120890"
+  },
+  "[SS] zz002.airport.lat:51492": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.535339"
+  },
+  "[SS] zz002.airport.lat:35695": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.622724"
+  },
+  "[SS] zz002.airport.lat:47026": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.623111"
+  },
+  "[SS] zz002.airport.lat:11009": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.639298"
+  },
+  "[SS] zz002.airport.lat:26491": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.639632"
+  },
+  "[SS] zz002.airport.lat:42699": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.678989"
+  },
+  "[SS] zz002.airport.lat:31579": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.767794"
+  },
+  "[SS] zz002.airport.lat:38271": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.768206"
+  },
+  "[SS] zz002.airport.lat:14037": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.768526"
+  },
+  "[SS] zz002.airport.lat:22524": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.768839"
+  },
+  "[SS] zz002.airport.lat:43123": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.769162"
+  },
+  "[SS] zz002.airport.lat:21140": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.776915"
+  },
+  "[SS] zz002.airport.lat:21160": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.782242"
+  },
+  "[SS] zz002.airport.lat:40913": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.782561"
+  },
+  "[SS] zz002.airport.lat:51196": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.782871"
+  },
+  "[SS] zz002.airport.lat:25389": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.808291"
+  },
+  "[SS] zz002.airport.lat:20081": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.808607"
+  },
+  "[SS] zz002.airport.lat:26111": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.895455"
+  },
+  "[SS] zz002.airport.lat:36617": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.931934"
+  },
+  "[SS] zz002.airport.lat:37083": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.932361"
+  },
+  "[SS] zz002.airport.lat:34739": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.932696"
+  },
+  "[SS] zz002.airport.lat:22947": {
+    "reason": "GeoIP过滤",
+    "timestamp": "2025-09-07T00:20:16.933024"
   }
 }
